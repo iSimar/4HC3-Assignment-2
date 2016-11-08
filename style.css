@@ -1,0 +1,59 @@
+.center-text {
+  text-align: center;
+}
+
+.body {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 51px;
+  text-align: left;
+}
+
+.gray-text.center-text {
+  color: #949292;
+  font-weight: 400;
+}
+
+.account-number {
+  display: block;
+  width: 35%;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 23px;
+  line-height: 23px;
+  text-align: center;
+}
+
+.account-button {
+  margin-bottom: 16px;
+  margin-left: 16px;
+  padding-right: 39px;
+  padding-left: 41px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.account-button:hover {
+  background-color: #084983;
+}
+
+.account-button.delete-button {
+  padding-right: 64px;
+  padding-left: 80px;
+  background-color: #24659e;
+}
+
+.key-pad {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 18px;
+}
+
+.key-pad-row {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
