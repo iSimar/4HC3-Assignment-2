@@ -1,7 +1,8 @@
 var accNumber = '';
 
 function enterNumber(number){
-    if(accNumber.length < 20){
+    clearNotif();
+    if(accNumber.length < 19){
         accNumber+=number+'';
         if(accNumber.length==4 || accNumber.length==9 || accNumber.length==14){
             accNumber+='-'
@@ -11,6 +12,7 @@ function enterNumber(number){
 }
 
 function deleteAccountNumber(){
+    clearNotif();
     var lastchar = accNumber.substring(accNumber.length - 1);
     if(lastchar=='-'){
         $( ".account-number").val(accNumber.substring(0, accNumber.length - 2));
@@ -20,6 +22,18 @@ function deleteAccountNumber(){
         $( ".account-number").val(accNumber.substring(0, accNumber.length - 1));
         accNumber = accNumber.substring(0, accNumber.length - 1);
     }   
+}
+
+function onClickLogin(){
+    if(accNumber == ''){
+        pushNotif('You must enter an account number');
+    }
+    else if(accNumber == '1111-1111-1111-1111'){
+        pushSuccessNotif('Success! Loading...');
+    }
+    else{
+        pushErrorNotif('Invalid Account Number');
+    }
 }
 
 function pushNotif(msg){

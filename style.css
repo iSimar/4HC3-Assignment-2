@@ -45,6 +45,10 @@
   background-color: #24659e;
 }
 
+.account-button.success-button {
+  background-color: #38cc68;
+}
+
 .key-pad {
   display: block;
   margin-right: auto;
@@ -61,10 +65,9 @@
 
 .top-banner {
   position: static;
-  /*background-color: #f88d8d;*/
   height: 60px;
   padding-top: 7px;
-}
+  }
 
 .error-text {
   margin-top: auto;
