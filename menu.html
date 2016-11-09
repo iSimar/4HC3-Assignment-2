@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+        <script src="./script.js"></script>
+         <link rel="stylesheet" type="text/css" href="./webflow.css">
+         <link rel="stylesheet" type="text/css" href="./style.css">
+    </head>
+    <body class="body">
+        <div class="top-banner">
+                    <div class="top-banner">
+            <h1 class="error-text"></h1>
+        </div>
+        <div class="menu-content">
+        <a class="logout-button w-button" href="#" onclick="logout()">Logout</a>
+        <div class="menu-container">
+            <h1 class="greeting">Good morning, Will!</h1>
+            <div class="icons-row">
+            <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_309257_cc.png" srcset="images/noun_309257_cc.png 500w, images/noun_309257_cc.png 530w">
+                <h3 class="icon-text">Withdraw</h3>
+            </div>
+            <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_309258_cc.png" srcset="images/noun_309258_cc.png 500w, images/noun_309258_cc.png 528w">
+                <h3 class="icon-text">Deposit</h3>
+            </div>
+            </div>
+            <div class="icons-row">
+            <div class="check-balance-button menu-icon-button"><img class="icon wallet-balance" sizes="93px" src="images/noun_216973_cc.png" srcset="images/noun_216973_cc.png 500w, images/noun_216973_cc.png 515w">
+                <h3 class="check-balance-people icon-text">Check<br> Balance</h3>
+            </div>
+            <div class="menu-icon-button"><img class="icon" src="images/noun_22373_cc.png">
+                <h3 class="icon-text">Transfer</h3>
+            </div>
+            </div>
+        </div>
+        </div>
+    </body>
+    <script>
+        $( document ).ready(function() {
+            if(!session){
+                pushErrorNotif('You\'re not logged in. Redirecting to login page...');
+                setTimeout(function(){
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        });
+    </script>
+</html>

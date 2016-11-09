@@ -67,7 +67,8 @@
   position: static;
   height: 60px;
   padding-top: 7px;
-  }
+  background-color: transparent;
+}
 
 .error-text {
   margin-top: auto;
@@ -77,4 +78,117 @@
   font-style: normal;
   font-weight: 400;
   text-align: center;
+}
+
+.menu-container {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.icons-row {
+  margin-bottom: 65px;
+}
+
+.menu-icon-button {
+  display: inline-block;
+  width: 176px;
+  margin-right: 35px;
+  margin-left: 35px;
+  padding: 10px 24px;
+  border-radius: 20px;
+  background-color: #61b1f7;
+  cursor: pointer;
+}
+
+.menu-icon-button:hover {
+  background-color: #007deb;
+}
+
+.menu-icon-button.check-balance-button {
+  margin-top: 0px;
+  margin-bottom: 1px;
+  padding: 10px 38px 13px 40px;
+  border-top-right-radius: 20px;
+}
+
+.icon {
+  width: 115px;
+}
+
+.icon.wallet-balance {
+  width: 93px;
+}
+
+.icon-text {
+  color: #000;
+  font-size: 31px;
+}
+
+.icon-text.check-balance-people {
+  margin-top: 7px;
+  margin-bottom: 6px;
+  font-size: 27px;
+  line-height: 25px;
+}
+
+.greeting {
+  display: block;
+  margin-top: 36px;
+  margin-bottom: 28px;
+}
+
+.logout-button {
+  position: absolute;
+  display: inline-block;
+  margin-top: 35px;
+  margin-left: 16%;
+  padding: 16px 26px;
+  float: none;
+  clear: none;
+  background-color: #ec6a38;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+@media (max-width: 991px) {
+  .logout-button {
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 767px) {
+  .greeting {
+    font-size: 25px;
+  }
+  .logout-button {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 479px) {
+  .icons-row {
+    margin-bottom: 0px;
+  }
+  .menu-icon-button {
+    margin-bottom: 47px;
+  }
+  .menu-icon-button.check-balance-button {
+    margin-bottom: 47px;
+  }
+  .greeting {
+    margin-bottom: 64px;
+  }
+  .logout-button {
+    margin-top: 79px;
+    margin-left: 33%;
+  }
+}
+.menu-content{
+  display: none;
+}
+
+.login-content{
+  display: none;
 }

@@ -1,6 +1,7 @@
 <html>
     <head>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
         <script src="./script.js"></script>
          <link rel="stylesheet" type="text/css" href="./webflow.css">
          <link rel="stylesheet" type="text/css" href="./style.css">
@@ -9,6 +10,7 @@
   <div class="top-banner">
     <h1 class="error-text"></h1>
   </div>
+  <div class="login-content">
   <h1 class="center-text">Swipe Debit Card</h1>
   <h3 class="center-text gray-text">or</h3>
   <h1 class="center-text">Enter Card Account #</h1>
@@ -31,5 +33,16 @@
     <div class="key-pad-row w-container"><a class="account-button success-button w-button" href="#" onclick="onClickLogin()">Login</a>
     </div>
   </div>
+  </div>
+  <script>
+        $( document ).ready(function() {
+            if(session){
+              pushNotif('You\'re already logged in...');
+              setTimeout(function(){
+                  window.location.href = 'menu.html';
+              }, 2000);
+            }
+        });
+    </script>
 </body>
 </html>

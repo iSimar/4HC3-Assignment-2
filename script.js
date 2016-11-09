@@ -1,3 +1,23 @@
+var data =  JSON.parse(localStorage.getItem("data"));
+var session =  localStorage.getItem("session");
+
+firebase.initializeApp({
+    apiKey: "AIzaSyCXwc3XvYI9xBAtS_srMi9Shy5r3SDg4hE",
+    authDomain: "hc4-assignment2.firebaseapp.com",
+    databaseURL: "https://hc4-assignment2.firebaseio.com",
+    storageBucket: "hc4-assignment2.appspot.com",
+    messagingSenderId: "0",
+});
+
+var database = firebase.database().ref('data/');
+
+database.on('value', function(snapshot) {
+  console.log('fetching new data:');
+  console.log(snapshot.val());
+  localStorage.setItem("data", JSON.stringify(snapshot.val()));
+  data = snapshot.val();
+});
+
 var accNumber = '';
 
 function enterNumber(number){
@@ -28,13 +48,26 @@ function onClickLogin(){
     if(accNumber == ''){
         pushNotif('You must enter an account number');
     }
-    else if(accNumber == '1111-1111-1111-1111'){
+    else if(getAccount(accNumber) != null){
+        localStorage.setItem("session", accNumber);
         pushSuccessNotif('Success! Loading...');
+        setTimeout(function(){
+            window.location.href = 'menu.html';
+        }, 2000);
     }
     else{
         pushErrorNotif('Invalid Account Number');
     }
 }
+
+function logout(){
+    localStorage.removeItem('session');
+    pushNotif('Logging out...');
+    setTimeout(function(){
+        window.location.href = 'index.html';
+    }, 2000);
+}
+
 
 function pushNotif(msg){
     $(".error-text").text('');
@@ -58,3 +91,28 @@ function clearNotif(){
     $(".top-banner").css("background-color", "#fff");
     $(".error-text").text('');
 }
+
+function getAccount(number){
+    if(data){
+        for(var i = 0; i<data.accounts.length; i++){
+            if(data.accounts[i].number==number){
+                return data.accounts[i];
+            }
+            if(i==data.accounts.length-1){
+                return null;
+            }
+        }
+    }
+    else{
+        return null;
+    }
+}
+
+$( document ).ready(function() {
+    if(session){
+        $( ".menu-content" ).css("display", "block");
+    }
+    else{
+        $( ".login-content" ).css("display", "block");
+    }
+});
