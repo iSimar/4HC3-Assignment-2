@@ -9,24 +9,27 @@
          <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
     <body class="body">
+  <div class="top-banner">
+    <h1 class="error-text"></h1>
+  </div>
   <h1 class="center-text">Swipe Debit Card</h1>
   <h3 class="center-text gray-text">or</h3>
   <h1 class="center-text">Enter Card Account #</h1>
   <div class="w-form">
     <form data-name="Email Form" id="email-form" name="email-form">
-      <input class="account-number w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="eg. 12345678912345678" type="text">
+      <input class="account-number w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="eg. 1234-5678-9123-45678" type="text" readonly='true'>
     </form>
     <div class="w-form-done"></div>
     <div class="w-form-fail"></div>
   </div>
   <div class="key-pad">
-    <div class="key-pad-row w-container"><a class="account-button w-button" href="#">1</a><a class="account-button w-button" data-ix="new-interaction-2" href="#">2</a><a class="account-button w-button" href="#">3</a>
+    <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterNumber(1)">1</a><a class="account-button w-button" data-ix="new-interaction-2" href="#" onclick="enterNumber(2)">2</a><a class="account-button w-button" href="#" onclick="enterNumber(3)">3</a>
     </div>
-    <div class="key-pad-row w-container"><a class="account-button w-button" href="#">4</a><a class="account-button w-button" href="#">5</a><a class="account-button w-button" href="#">6</a>
+    <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterNumber(4)">4</a><a class="account-button w-button" href="#" onclick="enterNumber(5)">5</a><a class="account-button w-button" href="#" onclick="enterNumber(6)">6</a>
     </div>
-    <div class="key-pad-row w-container"><a class="account-button w-button" href="#">7</a><a class="account-button w-button" href="#">8</a><a class="account-button w-button" href="#">9</a>
+    <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterNumber(7)">7</a><a class="account-button w-button" href="#" onclick="enterNumber(8)">8</a><a class="account-button w-button" href="#" onclick="enterNumber(9)">9</a>
     </div>
-    <div class="key-pad-row w-container"><a class="account-button w-button" href="#">0</a><a class="account-button delete-button w-button" href="#">Delete</a>
+    <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterNumber(0)">0</a><a class="account-button delete-button w-button" href="#" onclick="deleteAccountNumber()">Delete</a>
     </div>
   </div>
 </body>

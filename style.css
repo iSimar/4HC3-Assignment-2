@@ -6,7 +6,8 @@
   display: block;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 51px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   text-align: left;
 }
 
@@ -55,5 +56,22 @@
   display: block;
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
+}
+
+.top-banner {
+  position: static;
+  /*background-color: #f88d8d;*/
+  height: 60px;
+  padding-top: 7px;
+}
+
+.error-text {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #5c5555;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
   text-align: center;
 }
