@@ -11,12 +11,18 @@
     <h1 class="error-text"></h1>
   </div>
   <div class="login-content">
-  <h1 class="center-text">Swipe Debit Card</h1>
-  <h3 class="center-text gray-text">or</h3>
-  <h1 class="center-text">Enter Card Account #</h1>
+    <div class="login-header-titles">
+      <h1 class="center-text">Swipe Debit Card</h1>
+      <h3 class="center-text gray-text">or</h3>
+      <h1 class="center-text">Enter Card Account #</h1>
+    </div>
+    <div class="login-header-titles-2">
+      <h1 class="center-text">Enter Security Pin</h1>
+    </div>
   <div class="w-form">
     <form data-name="Email Form" id="email-form" name="email-form">
       <input class="account-number w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="eg. 1234-5678-9123-45678" type="text" readonly='true'>
+       <input class="pin-number w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="eg. 1234" type="password" readonly='true'>
     </form>
     <div class="w-form-done"></div>
     <div class="w-form-fail"></div>
@@ -30,7 +36,10 @@
     </div>
     <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterNumber(0)">0</a><a class="account-button delete-button w-button" href="#" onclick="deleteAccountNumber()">Delete</a>
     </div>
-    <div class="key-pad-row w-container"><a class="account-button success-button w-button" href="#" onclick="onClickLogin()">Login</a>
+    <div class="key-pad-row w-container">
+      <a class="account-button success-button continue-button w-button" href="#" onclick="onClickContinue()">Continue</a>
+      <a class="account-button back-button w-button" href="#" onclick="onClickCancel()">Cancel</a>
+      <a class="account-button success-button login-button w-button" href="#" onclick="onClickLogin()">Login</a>
     </div>
   </div>
   </div>

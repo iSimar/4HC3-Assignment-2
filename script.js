@@ -18,37 +18,91 @@ database.on('value', function(snapshot) {
   data = snapshot.val();
 });
 
+var enterPinState = false;
 var accNumber = '';
+var pinNumber = '';
 
 function enterNumber(number){
     clearNotif();
-    if(accNumber.length < 19){
-        accNumber+=number+'';
-        if(accNumber.length==4 || accNumber.length==9 || accNumber.length==14){
-            accNumber+='-'
+    if(enterPinState){
+        if(pinNumber.length < 4){
+            pinNumber+=number+'';
+            $( ".pin-number").val(pinNumber);
         }
-        $( ".account-number").val(accNumber);
+    }
+    else{
+        if(accNumber.length < 19){
+            accNumber+=number+'';
+            if(accNumber.length==4 || accNumber.length==9 || accNumber.length==14){
+                accNumber+='-'
+            }
+            $( ".account-number").val(accNumber);
+        }
     }
 }
 
 function deleteAccountNumber(){
     clearNotif();
-    var lastchar = accNumber.substring(accNumber.length - 1);
-    if(lastchar=='-'){
-        $( ".account-number").val(accNumber.substring(0, accNumber.length - 2));
-        accNumber = accNumber.substring(0, accNumber.length - 2);
+    if(enterPinState){
+        $( ".pin-number").val(pinNumber.substring(0, pinNumber.length - 1));
+        pinNumber = pinNumber.substring(0, pinNumber.length - 1);
     }
     else{
-        $( ".account-number").val(accNumber.substring(0, accNumber.length - 1));
-        accNumber = accNumber.substring(0, accNumber.length - 1);
-    }   
+        var lastchar = accNumber.substring(accNumber.length - 1);
+        if(lastchar=='-'){
+            $( ".account-number").val(accNumber.substring(0, accNumber.length - 2));
+            accNumber = accNumber.substring(0, accNumber.length - 2);
+        }
+        else{
+            $( ".account-number").val(accNumber.substring(0, accNumber.length - 1));
+            accNumber = accNumber.substring(0, accNumber.length - 1);
+        } 
+    }  
 }
 
-function onClickLogin(){
+function onClickContinue(){
     if(accNumber == ''){
         pushNotif('You must enter an account number');
     }
-    else if(getAccount(accNumber) != null){
+    else if(accNumber.length < 19){
+        pushErrorNotif('Account number must be 16 digits');
+    }
+    else if(accNumber.length == 19 && accountNumberValid(accNumber)){
+        enterPinState = true;
+        $(".login-header-titles").css("display", "none");
+        $(".login-header-titles-2").css("display", "block");
+        $(".account-number").css("display", "none");
+        $(".pin-number").css("display", "block");
+        $(".continue-button").css("display", "none");
+        $(".login-button").css("display", "inline-block");
+        $(".back-button").css("display", "inline-block");
+    }
+    else{
+        pushErrorNotif('Account number is invalid');
+    }
+    
+}
+
+function onClickCancel(){
+    $( ".pin-number").val('');
+    $( ".account-number").val('');
+    accNumber = '';
+    pinNumber = '';
+    enterPinState = false;
+    $(".login-header-titles").css("display", "block");
+    $(".login-header-titles-2").css("display", "none");
+    $(".account-number").css("display", "block");
+    $(".pin-number").css("display", "none");
+    $(".continue-button").css("display", "inline-block");
+    $(".login-button").css("display", "none");
+    $(".back-button").css("display", "none");
+}
+
+function onClickLogin(){
+    if(pinNumber == ''){
+        pushNotif('You must enter a pin number');
+    }
+    else if(getAccount(accNumber, pinNumber) != null){
         localStorage.setItem("session", accNumber);
         pushSuccessNotif('Success! Loading...');
         setTimeout(function(){
@@ -56,7 +110,9 @@ function onClickLogin(){
         }, 2000);
     }
     else{
-        pushErrorNotif('Invalid Account Number');
+        pushErrorNotif('Invalid Pin Number');
+        pinNumber = '';
+        $( ".pin-number").val('');
     }
 }
 
@@ -92,11 +148,32 @@ function clearNotif(){
     $(".error-text").text('');
 }
 
-function getAccount(number){
+function accountNumberValid(accNumber){
     if(data){
         for(var i = 0; i<data.accounts.length; i++){
-            if(data.accounts[i].number==number){
-                return data.accounts[i];
+            if(data.accounts[i].number==accNumber){
+                return true;
+            }
+            if(i==data.accounts.length-1){
+                return false;
+            }
+        }
+    }
+    else{
+        return false;
+    }
+}
+
+function getAccount(accNumber, pinNumber){
+    if(data){
+        for(var i = 0; i<data.accounts.length; i++){
+            if(data.accounts[i].number==accNumber){
+                if(data.accounts[i].pin==pinNumber){
+                    return data.accounts[i];
+                }
+                else{
+                    return null;
+                }
             }
             if(i==data.accounts.length-1){
                 return null;

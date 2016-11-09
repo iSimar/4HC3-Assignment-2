@@ -26,6 +26,27 @@
   text-align: center;
 }
 
+.pin-number {
+  display: none;
+  width: 35%;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 23px;
+  line-height: 23px;
+  text-align: center;
+}
+
+.login-button {
+  display: none;
+  margin-top: 10px;
+}
+
+.back-button{
+  display: none;
+  background-color: gray;
+  margin-top: 10px;
+}
+
 .account-button {
   margin-bottom: 16px;
   margin-left: 16px;
@@ -33,6 +54,7 @@
   padding-left: 41px;
   font-size: 20px;
   text-align: center;
+  margin-top: 10px;
 }
 
 .account-button:hover {
@@ -43,6 +65,10 @@
   padding-right: 64px;
   padding-left: 80px;
   background-color: #24659e;
+}
+
+.login-header-titles-2{
+  display: none;
 }
 
 .account-button.success-button {
