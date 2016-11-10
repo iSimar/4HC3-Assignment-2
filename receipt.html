@@ -23,7 +23,7 @@
             </nav> 
         <center>
             <h1 class="greeting">Your Receipt</h1>
-            <table class="balance-table">
+            <table class="balance-table" style="margin-bottom: 30px;">
                 <tr>
                     <td><h2>Date: </h2></td>
                     <td style="padding-left: 180px; color: gray;"><h2><span class="date-here"></span></h2></td>
@@ -37,6 +37,9 @@
                     <td style="padding-left: 180px; color: green;"><h2>$<span class="new-balance"></span></h2></td>
                 </tr>
             </table>
+            <input class="gray-button" type="button" value="Cancel" onclick="window.location='index.html';"/>
+            <input class="yellow-button" type="button" value="Print" onclick="window.location='index.html';"/>
+            <input class="green-button" type="button" value="Continue" onclick="window.location='index.html';"/>
         </center>
         </div>
     </body>

@@ -68,6 +68,34 @@
   text-align: center;
 }
 
+.green-button, .yellow-button, .gray-button{
+  height: 70px;
+  width: 250px;
+  float: none;
+  clear: none;
+  font-size: 24px;
+  font-weight: 400;
+  box-shadow:
+    0 1px 2px #fff,
+    0 -1px 1px #666,
+    inset 0 -1px 1px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.gray-button{
+  background-color: lightslategray;
+}
+
+.green-button{
+  background-color: #48a33c;
+}
+
+.yellow-button{
+  background-color: #E69632;
+}
+
 .continue-button {
   position: absolute;
   right: 5%;
