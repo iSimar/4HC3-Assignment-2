@@ -396,12 +396,6 @@
   flex-direction: column;
 }
 
-.pagetitle {
-  position: absolute;
-  top: 70px;
-  text-align: center;
-}
-
 @media (max-width: 991px) {
   #sidebar a {
     margin-left: 5%;
