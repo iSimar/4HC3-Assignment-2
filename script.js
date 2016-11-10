@@ -254,11 +254,21 @@ function fastcash() {
 function sidebar() {
     var x = document.getElementById("sidebar");
     x.innerHTML = "<a class=\"mainmenu-button w-button\" href=\"menu.html\">Main Menu</a>" + 
+                "<a class=\"balance-button w-button\" href=\"balance.html\">Check Balance</a>" +
                 "<a class=\"withdraw-button w-button\" href=\"withdraw.html\">Withdraw</a>" +
                 "<a class=\"deposit-button w-button\" href=\"deposit.html\">Deposit</a>" + 
                 "<a class=\"transfer-button w-button\" href=\"transfer.html\">Transfer</a>" +
-                "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>" +
-                "<a class=\"logout-button w-button\" href=\"#\" onclick=\"logout()\">Logout</a>";
+                "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>";
+}
+
+// NAV-BUTTONS
+function navButtons() {
+    var x = document.getElementById("nav-buttons");
+    x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
 }
 
 $( document ).ready(function() {

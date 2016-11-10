@@ -6,20 +6,24 @@
             crossorigin="anonymous"></script>
          <script src="./script.js"></script>
          <link rel="stylesheet" type="text/css" href="./webflow.css">
-         <link rel="stylesheet" type="text/css" href="./style.css">
+         <link rel="stylesheet" type="text/css" href="./newstyle.css">
     </head>  
     <body class="body">
         <div class="top-banner">
             <h1 class="error-text"></h1>
         </div>
-        <div class="page-content">
-            <nav id="sidebar">
-            </nav>
+
+        <div id="title">
+            <h1 class="pagetitle">Page Title</h1>
         </div>
-
-
-
-
+        
+        <div class="page-content">
+            <nav id="sidebar"></nav> 
+            
+            <div class="content-container"></div>
+            
+            <div id="nav-buttons"></div>
+        </div>
     </body>
     <script>
         $( document ).ready(function() {
@@ -30,6 +34,7 @@
                 }, 2000);
             }
             sidebar();
+            navButtons();
         });
     </script>
 </html>

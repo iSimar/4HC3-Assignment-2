@@ -1,12 +1,17 @@
-.deposit-container {
+.content-container {
   position: absolute;
-  left: 27%;
+  left: 22%;
+  top: 20%;
   display: block;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
-  width: 55%;
+  width: 70%;
   height: 80%;
+}
+
+#title {
+  width: 100%;
 }
 
 .cash-button {
@@ -59,49 +64,16 @@
   bottom: 20%;  
 }
 
-.deposit-container {
+#nav-buttons {
   position: absolute;
-  left: 27%;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-}
-
-.green-button, .yellow-button, .gray-button{
-  height: 70px;
-  width: 250px;
-  float: none;
-  clear: none;
-  font-size: 24px;
-  font-weight: 400;
-  box-shadow:
-    0 1px 2px #fff,
-    0 -1px 1px #666,
-    inset 0 -1px 1px rgba(0,0,0,0.5),
-    inset 0 1px 1px rgba(255,255,255,0.8);
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.gray-button{
-  background-color: lightslategray;
-}
-
-.green-button{
-  background-color: #48a33c;
-}
-
-.yellow-button{
-  background-color: #E69632;
+  bottom: 5%;
+  width: 100%;
 }
 
 .continue-button {
   position: absolute;
   right: 5%;
-  bottom: 5%;
   background-color: #48a33c;
-  padding-top: 24px;
   height: 70px;
   width: 250px;
   float: none;
@@ -120,9 +92,8 @@
 }
 
 .cancel-button {
-  position: absolute;
-  left: 5%;
-  bottom: 5%;
+  position: relative;
+  left: 40%;
   width: 150px;
   height: 60px;
   background-color: #E69632;
@@ -141,6 +112,27 @@
 
 .cancel-button:hover {
   background-color: rgb(200,120,20);
+}
+
+.logout-button {
+  position: absolute;
+  left: 5%;
+  background-color: #ec3838;
+  height: 70px;
+  width: 250px;
+  float: none;
+  clear: none;
+  font-size: 24px;
+  font-weight: 400;
+  box-shadow:
+    0 1px 2px #fff,
+    0 -1px 1px #666,
+    inset 0 -1px 1px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.logout-button:hover {
+  background-color: darkred;
 }
 
 .select-account-dropdown {
@@ -196,12 +188,6 @@
   margin-top: 10px;
 }
 
-.back-button{
-  display: none;
-  background-color: gray;
-  margin-top: 10px;
-}
-
 .account-button {
   margin-bottom: 16px;
   margin-left: 16px;
@@ -224,10 +210,6 @@
 
 .login-header-titles-2{
   display: none;
-}
-
-.account-button.success-button {
-  background-color: #38cc68;
 }
 
 .key-pad {
@@ -297,7 +279,8 @@
 }
 
 .icon {
-  width: 115px;
+  width: 60px;
+  height: 60px;
 }
 
 .icon.wallet-balance {
@@ -306,7 +289,7 @@
 
 .icon-text {
   color: #000;
-  font-size: 31px;
+  font-size: 27px;
 }
 
 .icon-text.check-balance-people {
@@ -320,6 +303,7 @@
   display: block;
   margin-top: 36px;
   margin-bottom: 28px;
+  text-align: center;
 }
 
 .mainmenu-button {
@@ -331,8 +315,17 @@
   background-color: #007deb
 }
 
-.withdraw-button {
+.balance-button {
   bottom: 280px;
+  background-color: rgb(77,158,248);
+}
+
+.balance-button:hover {
+  background-color: #007deb
+}
+
+.withdraw-button {
+  bottom: 210px;
   background-color: rgb(77,158,248);
 }
 
@@ -341,7 +334,7 @@
 }
 
 .deposit-button {
-  bottom: 210px;
+  bottom: 140px;
   background-color: rgb(77,158,248);
 }
 
@@ -350,7 +343,7 @@
 }
 
 .transfer-button {
-  bottom: 140px;
+  bottom: 70px;
   background-color: rgb(77,158,248);
 }
 
@@ -359,22 +352,13 @@
 }
 
 .fastcash-button {
-  bottom: 70px;
+  bottom: 0px;
   background-color: rgb(77,158,248);
+  border-bottom: solid 3px black;
 }
 
 .fastcash-button:hover {
   background-color: #007deb
-}
-
-.logout-button {
-  bottom: 0px;
-  border-bottom: solid 3px black;
-  background-color: #ec3838;
-}
-
-.logout-button:hover {
-  background-color: darkred;
 }
 
 #sidebar a {
@@ -396,8 +380,8 @@
 #sidebar {
   position: absolute;
   text-align: center;
-  top: 85%;
-  left: 2%;
+  top: 83%;
+  left: 5%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -410,6 +394,12 @@
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.pagetitle {
+  position: absolute;
+  top: 70px;
+  text-align: center;
 }
 
 @media (max-width: 991px) {
@@ -425,6 +415,10 @@
   }
   .cancel-button {
     margin-left: 5%;
+    font-size: 19px;
+    width: 150px;    
+  }
+  .logout-button {
     font-size: 19px;
     width: 150px;    
   }
@@ -445,8 +439,32 @@
     font-size: 25px;
   }
   #sidebar a {
-    font-size: 19px;
-    width: 150px;
+    font-size: 18px;
+    width: 100px;
+  }
+  .continue-button {
+    margin-left: 5%;
+    font-size: 18px;
+    width: 100px;    
+  }
+  .cancel-button {
+    margin-left: 5%;
+    font-size: 18px;
+    width: 100px;    
+  }
+  .logout-button {
+    font-size: 18px;
+    width: 100px;    
+  }
+  .cash-button {
+    margin-left: 5%;
+    font-size: 15px;
+    width: 80px;   
+  }
+  .cheque-button {
+    margin-left: 5%;
+    font-size: 15px;
+    width: 80px;  
   }
 }
 
@@ -466,11 +484,33 @@
   #sidebar a {
     margin-top: 79px;
     margin-left: 33%;
+    width: 80px;
+    font-size: 12px;
   }
-}
-
-.menu-content{
-  display: none;
+  .continue-button {
+    margin-left: 5%;
+    font-size: 15px;
+    width: 80px;    
+  }
+  .cancel-button {
+    margin-left: 5%;
+    font-size: 15px;
+    width: 80px;    
+  }
+  .logout-button {
+    font-size: 15px;
+    width: 80px;    
+  }
+  .cash-button {
+    margin-left: 5%;
+    font-size: 12px;
+    width: 50px;   
+  }
+  .cheque-button {
+    margin-left: 5%;
+    font-size: 12px;
+    width: 50px;  
+  }
 }
 
 .login-content{
