@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+        <script src="./script.js"></script>
+         <link rel="stylesheet" type="text/css" href="./webflow.css">
+         <link rel="stylesheet" type="text/css" href="./style.css">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="body">
+        <div style="display: flex; height: 100%;">
+           <div class="top-banner" style="position: absolute; width: 100%;">
+                <h1 class="error-text"></h1>
+            </div>
+            <div class="content-left-box">
+                <nav id="sidebar"></nav> 
+            </div>
+            <div class="content-middle-box">
+                <!--content here-->
+                <center>
+                    <div id="title">
+                        <h1>Transaction Completed!</h1>
+                    </div>
+                    <center>
+                    <br/>
+                    <br/>
+                    <h2><span class="collect-receipt"></span></h2>
+                    <br/>
+                    <br/>
+                    <input class="green-button" type="button" value="Go Home" onclick="window.location.href = 'menu.html';" />
+                    </center>
+
+                    
+                </center>
+            </div>
+            <div class="content-right-box">
+            </div>
+        </div>
+        <!--<div class="nav-buttons" id="nav-buttons-withdraw"></div>-->
+        <div id="myModal" class="modal"></div>
+        </div>
+    </body>
+    <script>
+        $( document ).ready(function() {
+            if(!session){
+                pushErrorNotif('You\'re not logged in. Redirecting to login page...');
+                setTimeout(function(){
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+            else{
+                sidebar();
+                navButtons();
+                // hideContinue();
+                if(findGetParameter('print')=='yes'){
+                    $(".collect-receipt").html("Please collect your printed receipt.");
+                }
+            }
+            
+        });
+    </script>
+</html>

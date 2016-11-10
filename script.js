@@ -312,8 +312,10 @@ function fastcash() {
 
     // When the user clicks on YES
     yes.onclick = function() {
+        pushNotif("Withdrawing $100 from Chequing Account...");
         setTimeout(function(){
             modal("Fast cash request accepted. Processing...",0,0);
+            window.location.href = 'success.html?print=yes';
         }, 1000);
         setTimeout(function(){
             modal("Fast cash processing successful",0,0);
