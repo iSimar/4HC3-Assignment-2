@@ -1,7 +1,7 @@
 .content-container {
   position: absolute;
-  left: 22%;
-  top: 20%;
+  right: 5%;
+  top: 25%;
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -16,7 +16,7 @@
 
 .cash-button {
   position: absolute;
-  left: 5%;
+  left: 25%;
   bottom: 50%;
   background-color: rgb(77,158,248);
   height: 50px;
@@ -38,7 +38,8 @@
 
 .cheque-button {
   position: absolute;
-  right: 5%;
+  right: 25%;
+  margin: auto;
   bottom: 50%;
   background-color: rgb(77,158,248);
   height: 50px;
@@ -59,9 +60,8 @@
 }
 
 .sessiontotal {
-  position: absolute;
-  left: 25%;
-  bottom: 20%;  
+  position: relative;
+  margin: auto;
 }
 
 #nav-buttons {
@@ -136,8 +136,9 @@
 }
 
 .select-account-dropdown {
-  position: absolute;
-  left: 21%;
+  text-align: center;
+  position: relative;
+  margin: auto;
   top: 20%;
   width: 400px;
   height: 80px;
@@ -253,12 +254,13 @@
 }
 
 .icons-row {
-  margin-bottom: 65px;
+  margin-bottom: 25px;
 }
 
 .menu-icon-button {
   display: inline-block;
   width: 176px;
+  height: 130px;
   margin-right: 35px;
   margin-left: 35px;
   padding: 10px 24px;
