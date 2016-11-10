@@ -551,65 +551,72 @@ input[type="submit"][disabled]:hover
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    height: 80%
+    height: 90%
 }
 
 /* The No Button */
 .no {
-    position: absolute;
-    right: 25%;
-    bottom: 40%;
-    padding: 20px 20px 20px 20px;
-    color: #aaaaaa;
-    float: right;
-    font-size: 30px;
-    font-weight: bold;
-    background-color: red;
-    width: 100px;
-    height: 50px;
-    text-align: center;
+  position: absolute;
+  left: 20%;
+  bottom: 40%;
+  width: 150px;
+  height: 60px;
+  background-color: #E69632;
+  height: 70px;
+  width: 250px;
+  float: none;
+  clear: none;
+  padding: 20px 20px 20px 20px;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  box-shadow:
+    0 1px 2px #fff,
+    0 -1px 1px #666,
+    inset 0 -1px 1px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.8);
 }
 
-.no,
-.no {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.no:hover {
+  background-color: rgb(200,120,20);
 }
 
-/* The Yes Button */
-.yes{
-    position: absolute;
-    left: 25%;
-    bottom: 40%;
-    padding: 20px 20px 20px 20px;
-    color: #aaaaaa;
-    float: left;
-    font-size: 30px;
-    font-weight: bold;
-    background-color: green;
-    width: 100px;
-    height: 50px;
-    text-align: center;
-}
-
-.yes,
+/* The Yes Button*/
 .yes {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  position: absolute;
+  right: 20%;
+  bottom: 40%;
+  background-color: #48a33c;
+  height: 70px;
+  width: 250px;
+  float: none;
+  clear: none;
+  padding: 20px 20px 20px 20px;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  box-shadow:
+    0 1px 2px #fff,
+    0 -1px 1px #666,
+    inset 0 -1px 1px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.8);
 }
+
+.yes:hover {
+  background-color: #26811a;
+}
+
 
 #qc {
-    width: 100%;
+    width: 80%;
+    margin: auto;
+    position: absolute;
+    top: 40%;
 }
 
 #question {
     font-size: 30px;
-    position: absolute;
-    top: 40%;
     text-align: center;
-    margin: auto;
 }
 
 label {
