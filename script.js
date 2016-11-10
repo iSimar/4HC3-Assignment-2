@@ -414,7 +414,7 @@ function navButtons() {
     }
     x = document.getElementById("nav-buttons-balance");
     if(typeof(x) != 'undefined' && x != null) {
-        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Back\" onclick=\"window.location=\'index.html\';\">";
+        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Back\" onclick=\"window.location=\'menu.html\';\">";
         return;
     }
     x = document.getElementById("nav-buttons-transfer");
