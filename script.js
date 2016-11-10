@@ -334,7 +334,8 @@ function sidebar() {
                 "<a class=\"withdraw-button w-button w-button\" href=\"withdraw.html\" onclick=\"confirmNavigate(\"withdraw.html\")\">Withdraw</a>" +
                 "<a class=\"deposit-button w-button\" href=\"deposit.html\" onclick=\"confirmNavigate(\"deposit.html\")\">Deposit</a>" +
                 "<a class=\"transfer-button w-button w-button\" href=\"transfer.html\" onclick=\"confirmNavigate(\"transfer.html\")\">Transfer</a>" +
-                "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>";
+                "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>"+
+                "<a class=\"logout-button-2 w-button\" href=\"#\" onclick=\"logout()\">Logout</a>";
 }
 
 // NAV-BUTTONS
