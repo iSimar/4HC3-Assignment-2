@@ -216,9 +216,7 @@ input[type="submit"][disabled]:hover
   font-weight: 400;
 }
 
-.account-number,
-.transfer-other-amount-number,
-.withdraw-other-amount-number {
+.account-number {
   display: block;
   width: 35%;
   margin-right: auto;
@@ -226,6 +224,20 @@ input[type="submit"][disabled]:hover
   font-size: 23px;
   line-height: 23px;
   text-align: center;
+}
+.w-form{
+  margin: 0;
+}
+#email-form{
+  margin: 0;
+}
+.transfer-other-amount-number,
+.withdraw-other-amount-number{
+  width: 200px;
+  font-size: 23px;
+  line-height: 23px;
+  text-align: center;
+  margin: 0;
 }
 
 .pin-number {
@@ -272,6 +284,7 @@ input[type="submit"][disabled]:hover
   margin-right: auto;
   margin-left: auto;
   padding-top: 18px;
+  padding-bottom: 18px;
 }
 
 .key-pad-row {
