@@ -12,7 +12,7 @@
             <h1 class="error-text"></h1>
         </div>
 
-        <div class="page-content">
+        <div class="page-content" style="display:none;">
             <div class="login-header-titles">
                 <h1 class="center-text">Swipe Debit Card</h1>
                 <h3 class="center-text gray-text">or</h3>
@@ -60,10 +60,13 @@
         <script>
         $( document ).ready(function() {
         if(session){
-        pushNotif('You\'re already logged in...');
-        setTimeout(function(){
-        window.location.href = 'menu.html';
-        }, 2000);
+            pushNotif('You\'re already logged in...');
+            setTimeout(function(){
+            window.location.href = 'menu.html';
+            }, 2000);
+        }
+        else{
+            $(".page-content").css("display", "block");
         }
         });
         </script>
