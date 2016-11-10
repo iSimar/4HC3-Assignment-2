@@ -93,7 +93,7 @@ function onClickCancel(){
     $(".login-header-titles-2").css("display", "none");
     $(".account-number").css("display", "block");
     $(".pin-number").css("display", "none");
-    $(".continue-button").css("display", "inline-block");
+    $(".continue-button-2").css("display", "inline-block");
     $(".login-button").css("display", "none");
     $(".back-button").css("display", "none");
 }
@@ -331,7 +331,7 @@ function fastcash() {
         //pushNotif("Withdrawing $100 from Chequing Account...");
         if(getAccountData(session).chequing >= 100){
             var d = new Date();
-            window.location.href = 'receipt.html?type=Withdraw&account=chequing&amount=100&balance=2460&date='+d.toLocaleDateString();
+            window.location.href = 'receipt.html?type=Withdraw&account=chequing&amount=100&balance='+(getAccountData(session).chequing-100)+'&date='+d.toLocaleDateString();
         }
         else{
             m.style.display = "none";
