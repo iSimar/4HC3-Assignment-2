@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+        <script src="./script.js"></script>
+         <link rel="stylesheet" type="text/css" href="./webflow.css">
+         <link rel="stylesheet" type="text/css" href="./style.css">
+    </head>
+    <body class="body">
+        <div class="top-banner">
+            <h1 class="error-text"></h1>
+        </div>
+        <div class="page-content">
+            <nav class="sidebar">
+                <a class="mainmenu-button w-button" href="index.html">Main Menu</a>
+                <a class="withdraw-button w-button" href="withdraw.html">Withdraw</a>
+                <a class="deposit-button w-button" href="#">Deposit</a>
+                <a class="transfer-button w-button" href="transfer.html">Transfer</a>
+                <a class="fastcash-button w-button" href="fastcash.html">$100 Fast Cash</a>
+                <a class="logout-button w-button" href="#" onclick="logout()">Logout</a>
+            </nav> 
+            <div class="deposit-container">
+                <h1 class="pagetitle">Deposit</h1>
+                <form data-name="deposit-form" data-redirect="#" redirect="#">
+                    <select class="select-account-dropdown" data-name="select-account" name="select-account">
+                        <option value="">Select account...</option>
+                        <option value="chequing">Chequing</option>
+                        <option value="savings">Savings</option>
+                    </select>
+                    <input class="cash-button" type="button" value="Deposit cash" data-name="cash-amount" onclick="depositCash()">
+                    <input class="cheque-button" type="button" value="Deposit cheque" onclick="depositCheque()">
+                    <h3 class="sessiontotal">Total to be deposited: $200.00</h3>
+                    <input class="cancel-button" type="button" value="Cancel" onclick="window.location='index.html';">
+                    <input class="continue-button" type="submit" value="Continue" onclick="depositTotal()">
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        $( document ).ready(function() {
+            if(!session){
+                pushErrorNotif('You\'re not logged in. Redirecting to login page...');
+                setTimeout(function(){
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        });
+    </script>
+</html>
