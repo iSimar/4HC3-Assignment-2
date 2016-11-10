@@ -1,3 +1,129 @@
+.deposit-container {
+  position: absolute;
+  left: 30%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  width: 55%;
+  height: 80%;
+}
+
+.cash-button {
+  position: absolute;
+  left: 5%;
+  bottom: 50%;
+  background-color: rgb(77,158,248);
+  height: 50px;
+  width: 200px;
+  float: none;
+  clear: none;
+  font-size: 24px;
+  font-weight: 400;
+  box-shadow:
+    0 1px 2px #fff,
+    0 -1px 1px #666,
+    inset 0 -1px 1px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.cash-button:hover {
+  background-color: rgb(47,128,218);
+}
+
+.cheque-button {
+  position: absolute;
+  right: 5%;
+  bottom: 50%;
+  background-color: rgb(77,158,248);
+  height: 50px;
+  width: 200px;
+  float: none;
+  clear: none;
+  font-size: 24px;
+  font-weight: 400;
+  box-shadow:
+    0 1px 2px #fff,
+    0 -1px 1px #666,
+    inset 0 -1px 1px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.cheque-button:hover {
+  background-color: rgb(47,128,218);
+}
+
+.sessiontotal {
+  position: absolute;
+  left: 25%;
+  bottom: 20%;  
+}
+
+.deposit-container {
+  position: absolute;
+  left: 30%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.continue-button {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  background-color: #48a33c;
+  height: 70px;
+  width: 250px;
+  float: none;
+  clear: none;
+  font-size: 24px;
+  font-weight: 400;
+  box-shadow:
+    0 1px 2px #fff,
+    0 -1px 1px #666,
+    inset 0 -1px 1px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.continue-button:hover {
+  background-color: #26811a;
+}
+
+.cancel-button {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  width: 150px;
+  height: 60px;
+  background-color: #E69632;
+  height: 70px;
+  width: 250px;
+  float: none;
+  clear: none;
+  font-size: 24px;
+  font-weight: 400;
+  box-shadow:
+    0 1px 2px #fff,
+    0 -1px 1px #666,
+    inset 0 -1px 1px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.cancel-button:hover {
+  background-color: rgb(200,120,20);
+}
+
+.select-account-dropdown {
+  position: absolute;
+  left: 21%;
+  top: 20%;
+  width: 400px;
+  height: 80px;
+  border-radius: 0px;
+  font-size: 30px;
+}
+
 .center-text {
   text-align: center;
 }
@@ -169,33 +295,57 @@
 
 .mainmenu-button {
   bottom: 350px;
-  background-color: green;
+  background-color: rgb(77,158,248);
+}
+
+.mainmenu-button:hover {
+  background-color: #007deb
 }
 
 .withdraw-button {
   bottom: 280px;
-  background-color: green;
+  background-color: rgb(77,158,248);
+}
+
+.withdraw-button:hover {
+  background-color: #007deb
 }
 
 .deposit-button {
   bottom: 210px;
-  background-color: green;
+  background-color: rgb(77,158,248);
+}
+
+.deposit-button:hover {
+  background-color: #007deb
 }
 
 .transfer-button {
   bottom: 140px;
-  background-color: green;
+  background-color: rgb(77,158,248);
+}
+
+.transfer-button:hover {
+  background-color: #007deb
 }
 
 .fastcash-button {
   bottom: 70px;
-  background-color: green;
+  background-color: rgb(77,158,248);
+}
+
+.fastcash-button:hover {
+  background-color: #007deb
 }
 
 .logout-button {
   bottom: 0px;
   border-bottom: solid 3px black;
-  background-color: #ec6a38;
+  background-color: #ec3838;
+}
+
+.logout-button:hover {
+  background-color: darkred;
 }
 
 .sidebar a {
@@ -239,6 +389,26 @@
     font-size: 19px;
     width: 150px;
   }
+  .continue-button {
+    margin-left: 5%;
+    font-size: 19px;
+    width: 150px;    
+  }
+  .cancel-button {
+    margin-left: 5%;
+    font-size: 19px;
+    width: 150px;    
+  }
+  .cash-button {
+    margin-left: 5%;
+    font-size: 15px;
+    width: 100px;   
+  }
+  .cheque-button {
+    margin-left: 5%;
+    font-size: 15px;
+    width: 100px;  
+  }
 }
 
 @media (max-width: 767px) {
@@ -269,6 +439,7 @@
     margin-left: 33%;
   }
 }
+
 .menu-content{
   display: none;
 }
