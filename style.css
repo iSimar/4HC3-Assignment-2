@@ -169,27 +169,33 @@
 
 .mainmenu-button {
   bottom: 350px;
+  background-color: green;
 }
 
 .withdraw-button {
   bottom: 280px;
+  background-color: green;
 }
 
 .deposit-button {
   bottom: 210px;
+  background-color: green;
 }
 
 .transfer-button {
   bottom: 140px;
+  background-color: green;
 }
 
 .fastcash-button {
   bottom: 70px;
+  background-color: green;
 }
 
 .logout-button {
   bottom: 0px;
   border-bottom: solid 3px black;
+  background-color: #ec6a38;
 }
 
 .sidebar a {
@@ -202,7 +208,6 @@
   margin-left: 16%;
   float: none;
   clear: none;
-  background-color: green;
   font-size: 24px;
   font-weight: 400;
   position: absolute;
