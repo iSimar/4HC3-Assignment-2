@@ -8,47 +8,57 @@
          <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="body">
-        <div class="top-banner">
-            <h1 class="error-text"></h1>
-        </div>
-
-        <div class="page-content">
-            <nav id="sidebar"></nav> 
-            
-            <div class="content-container">
-                
-                <div id="title">
-                    <h1 class="greeting">Your Receipt</h1>
-                </div>
-                <center>
-                <table class="balance-table" style="margin-bottom: 30px;">
-                    <tr>
-                        <td><h2>Date: </h2></td>
-                        <td style="padding-left: 180px; color: gray;"><h2><span class="date-here"></span></h2></td>
-                    </tr>
-                    <tr>
-                        <td><h2>Withdraw Amount: </h2></td>
-                        <td style="padding-left: 180px; color: green;"><h2>$<span class="withdraw-amount"></span></h2></td>
-                    </tr>
-                    <tr>
-                        <td><h2>New Balance (Chequing): </h2></td>
-                        <td style="padding-left: 180px; color: green;"><h2>$<span class="new-balance"></span></h2></td>
-                    </tr>
-                </table>
-                </center>
-
-                <form action="" onchange="unhideContinue()">
-                    <input type="radio" id="yes" name="yes" value="print">
-                    <label for="yes">Print Receipt</label><br>
-                    <input type="radio" id="no" name="no" value="no"><label for="no">No Receipt</label>
-                </form>
-
+        <div style="display: flex; height: 100%;">
+           <div class="top-banner" style="position: absolute; width: 100%;">
+                <h1 class="error-text"></h1>
             </div>
+            <div class="content-left-box">
+                <nav id="sidebar"></nav> 
+            </div>
+            <div class="content-middle-box">
+                <!--content here-->
+                <center>
+                    <div id="title">
+                        <h1>Your Receipt</h1>
+                    </div>
+                    <center>
+                    <table class="balance-table" style="margin-bottom: 30px;">
+                        <tr>
+                            <td><h2>Date: </h2></td>
+                            <td style="padding-left: 180px; color: gray;"><h2><span class="date-here"></span></h2></td>
+                        </tr>
+                        <tr>
+                            <td><h2>Withdraw Amount: </h2></td>
+                            <td style="padding-left: 180px; color: green;"><h2>$<span class="withdraw-amount"></span></h2></td>
+                        </tr>
+                        <tr>
+                            <td><h2>New Balance (Chequing): </h2></td>
+                            <td style="padding-left: 180px; color: green;"><h2>$<span class="new-balance"></span></h2></td>
+                        </tr>
+                        <tr>
+                            <td><h2>Print Receipt</h2></td>
+                            <td>
+                                <form action="">
+                                <table>
+                                    <tr>
+                                        <td><input type="radio" id="yes" name="yes" value="yes"><label for="yes">Yes</label></td>
+                                        <td style="padding-left: 20px;"><input type="radio" id="no" name="no" value="no"><label for="no">No</label></td>
+                                    </tr>
+                                </table>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                    </center>
 
-            <div class="nav-buttons" id="nav-buttons-receipt"></div>
-
-            <div id="myModal" class="modal"></div>
-
+                    
+                </center>
+            </div>
+            <div class="content-right-box">
+            </div>
+        </div>
+        <!--<div class="nav-buttons" id="nav-buttons-withdraw"></div>-->
+        <div id="myModal" class="modal"></div>
         </div>
     </body>
     <script>
