@@ -37,6 +37,10 @@
             }
             sidebar();
             navButtons();
+            // To make Continue button invisible, constraining form submission
+            var x = document.getElementsByClassName("continue-button");
+            x[0].style.display = "none";
+            // unhideContinue() on form change makes Continue visible again
         });
     </script>
 </html>

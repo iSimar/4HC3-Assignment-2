@@ -37,7 +37,7 @@
                 </table>
                 </center>
 
-                <form action="">
+                <form action="" onchange="unhideContinue()">
                     <input type="radio" id="yes" name="yes" value="print">
                     <label for="yes">Print Receipt</label><br>
                     <input type="radio" id="no" name="no" value="no"><label for="no">No Receipt</label>
@@ -70,6 +70,8 @@
             }, 3000);
             sidebar();
             navButtons();
+            var x = document.getElementsByClassName("continue-button");
+            x[0].style.display = "none";
         });
     </script>
 </html>

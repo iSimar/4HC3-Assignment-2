@@ -345,6 +345,11 @@ function navButtons() {
     }
 }
 
+function unhideContinue() {
+    var x = document.getElementsByClassName("continue-button");
+    x[0].style.display = "inline-block";
+}
+
 $( document ).ready(function() {
     if(session){
         $( ".menu-content" ).css("display", "block");

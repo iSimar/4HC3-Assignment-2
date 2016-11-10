@@ -23,7 +23,7 @@
 
                 <h3 class="sessiontotal">Total to be deposited: $200.00</h3>
                 <form data-name="deposit-form" data-redirect="#" redirect="#">
-                    <select class="select-account-dropdown" data-name="select-account" name="select-account">
+                    <select class="select-account-dropdown" data-name="select-account" name="select-account" onchange="unhideContinue();">
                         <option value="">Select account...</option>
                         <option value="chequing">Chequing</option>
                         <option value="savings">Savings</option>
@@ -49,6 +49,8 @@
             }
             sidebar();
             navButtons();
+            var x = document.getElementsByClassName("continue-button");
+            x[0].style.display = "none";
         });
     </script>
 </html>
