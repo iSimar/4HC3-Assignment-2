@@ -183,8 +183,18 @@
 
 
         function onContinueNumber(){
-            var d = new Date();
-            window.location.href = 'receipt.html?type=Transfer&account_number='+toAccNumber+'&amount='+amount1+'&date='+d.toLocaleDateString()+'&balance='+(accountData[from]-amount1);
+            if(toAccNumber.length < 19){
+                pushErrorNotif('Account number must be 16 digits');
+                setTimeout(function(){ clearNotif() },2000);
+            }
+            else if(toAccNumber != session){
+                var d = new Date();
+                window.location.href = 'receipt.html?type=Transfer&account_number='+toAccNumber+'&amount='+amount1+'&date='+d.toLocaleDateString()+'&balance='+(accountData[from]-amount1);
+            }
+            else{
+                pushErrorNotif('You can not send money to yourself');
+                setTimeout(function(){ clearNotif() },2000);
+            }
             // var d = new Date();
             // window.location.href = 'receipt.html?type=Transfer&account='+from+'&amount='+amount1+'&balance='+(accountData[from]-amount1)+'&date='+d.toLocaleDateString();
         }
