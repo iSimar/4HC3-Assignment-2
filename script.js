@@ -164,6 +164,22 @@ function accountNumberValid(accNumber){
     }
 }
 
+function getAccountData(accNumber){
+    if(data){
+        for(var i = 0; i<data.accounts.length; i++){
+            if(data.accounts[i].number==accNumber){
+                return data.accounts[i];
+            }
+            if(i==data.accounts.length-1){
+                return null;
+            }
+        }
+    }
+    else{
+        return null;
+    }
+}
+
 function getAccount(accNumber, pinNumber){
     if(data){
         for(var i = 0; i<data.accounts.length; i++){
@@ -188,6 +204,7 @@ function getAccount(accNumber, pinNumber){
 $( document ).ready(function() {
     if(session){
         $( ".menu-content" ).css("display", "block");
+        $( ".name-here" ).html(getAccountData(session).name);
     }
     else{
         $( ".login-content" ).css("display", "block");
