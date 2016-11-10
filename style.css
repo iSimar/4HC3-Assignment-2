@@ -216,7 +216,8 @@ input[type="submit"][disabled]:hover
   font-weight: 400;
 }
 
-.account-number {
+.account-number,
+.transfer-account-amount-number {
   display: block;
   width: 35%;
   margin-right: auto;
@@ -232,6 +233,7 @@ input[type="submit"][disabled]:hover
   margin: 0;
 }
 .transfer-other-amount-number,
+.withdraw-amount-other-section
 .withdraw-other-amount-number{
   width: 200px;
   font-size: 23px;

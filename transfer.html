@@ -9,55 +9,59 @@
     </head>
     <body class="body">
         <div style="display: flex; height: 100%;">
-           <div class="top-banner" style="position: absolute; width: 100%;">
+            <div class="top-banner" style="position: absolute; width: 100%;">
                 <h1 class="error-text"></h1>
             </div>
-            <div class="content-left-box">
+            <div class='content-left-box'>
                 <nav id="sidebar"></nav> 
             </div>
-            <div class="content-middle-box">
+            <div class='content-middle-box'>
                 <!--content here-->
                 <center>
-                <h1 class="greeting">Amount to Transfer</h1>
-                <div class="select-account">
-                    <form data-name="withdraw-form" data-redirect="#" redirect="#">
-                        <select class="select-account-dropdown" data-name="select-account" name="select-account" onchange="unhideContinue();">
-                            <option value="">Select account...</option>
-                            <option value="chequing">Chequing</option>
-                            <option value="savings">Savings</option>
-                        </select>
-                    </form>
+                <div id="title">
+                    <h1>Transfer</h1>
                 </div>
+                <div id="accountselector"></div> 
+                <!--<div class="select-account">
+                    <form data-name="withdraw-form" data-redirect="#" redirect="#">
+                            <select class="select-account-dropdown" data-name="select-account" name="select-account" onchange="unhideContinue();">
+                                <option value="">Select account...</option>
+                                <option value="chequing">Chequing<span class="chequing-option-amount"></span></option>
+                                <option value="savings">Savings<span class="savings-option-amount"></span></option>
+                            </select>
+                    </form>
+                </div>-->
                 <div class="amount-choices">
                     <div class="icons-row">
-                    <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_9653_cc.ico" srcset="images/noun_9653_cc.ico 500w, images/noun_9653_cc.ico 530w">
-                        <h3 class="icon-text">$20</h3>
-                    </div>
-                    <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_614719_cc.ico" srcset="images/noun_614719_cc.ico 500w, images/noun_614719_cc.ico 528w">
-                        <h3 class="icon-text">$40</h3>
-                    </div>
-                    <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_203832_cc.ico" srcset="images/noun_203832_cc.ico 500w, images/noun_203832_cc.ico 530w">
-                        <h3 class="icon-text">$60</h3>
-                    </div>
+                        <div class="menu-icon-button" onclick="onSelectAmountButton(20)"><img class="icon" sizes="115px" src="images/noun_9653_cc.ico" srcset="images/noun_9653_cc.ico 500w, images/noun_9653_cc.ico 530w">
+                            <h3 class="icon-text">$20</h3>
+                        </div>
+                        <div class="menu-icon-button" onclick="onSelectAmountButton(40)"><img class="icon" sizes="115px" src="images/noun_614719_cc.ico" srcset="images/noun_614719_cc.ico 500w, images/noun_614719_cc.ico 528w">
+                            <h3 class="icon-text">$40</h3>
+                        </div>
+                        <div class="menu-icon-button" onclick="onSelectAmountButton(60)"><img class="icon" sizes="115px" src="images/noun_203832_cc.ico" srcset="images/noun_203832_cc.ico 500w, images/noun_203832_cc.ico 530w">
+                            <h3 class="icon-text">$60</h3>
+                        </div>
                     </div>
                     <div class="icons-row">
-                    <div class="menu-icon-button"><img class="icon" src="images/noun_468117_cc.ico">
-                        <h3 class="icon-text">$80</h3>
-                    </div>
-                    <div class="menu-icon-button"><img class="icon" src="images/noun_12777_cc.ico">
-                        <h3 class="icon-text">$100</h3>
-                    </div>
-                    <div class="menu-icon-button" onclick="onClickOtherAmount()"><img class="icon" src="images/noun_666302_cc.ico">
+                        <div class="menu-icon-button" onclick="onSelectAmountButton(80)"><img class="icon" src="images/noun_468117_cc.ico">
+                            <h3 class="icon-text">$80</h3>
+                        </div>
+                        <div class="menu-icon-button" onclick="onSelectAmountButton(100)"><img class="icon" src="images/noun_12777_cc.ico">
+                            <h3 class="icon-text">$100</h3>
+                        </div>
+                        <div class="menu-icon-button" onclick="onClickOtherAmount()"><img class="icon" src="images/noun_666302_cc.ico">
                         <h3 class="icon-text">Other</h3>
                     </div>
                     </div>
                 </div>
-
-                <div class="transfer-amount-other-section" style="display:none;">
+                <div class="withdraw-amount-other-section" style="display:none;">
                     <div class="w-form">
                         <form data-name="Email Form" id="email-form" name="email-form">
-                        <input class="transfer-other-amount-number w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="eg. $1,231" type="text" readonly='true'>
+                        <input class="withdraw-other-amount-number w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="eg. $1,231" type="text" readonly='true'>
                         </form>
+                        <div class="w-form-done"></div>
+                        <div class="w-form-fail"></div>
                     </div>
                     <div class="key-pad">
                         <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterWidthdrawOtherNumber(1)">1</a><a class="account-button w-button" data-ix="new-interaction-2" href="#" onclick="enterWidthdrawOtherNumber(2)">2</a><a class="account-button w-button" href="#" onclick="enterWidthdrawOtherNumber(3)">3</a>
@@ -70,16 +74,36 @@
                         </div>
                     </div>
                     <input class="gray-button" type="button" value="Back" onclick="onBackFromOther()"/>
-                    <input class="green-button" type="button" value="Continue" onclick="window.location='index.html';"/>
+                    <input class="green-button" type="button" value="Continue" onclick="onSelectAmountButton(parseInt(otherAmount))"/>
+                </div>
+                <div class="transfer-account-section" style="display:none;">
+                    <h2>To:</h2>
+                    <div class="w-form">
+                        <form data-name="Email Form" id="email-form" name="email-form">
+                        <input class="transfer-account-amount-number w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="eg. 3123-1231-5123-5123" type="text" readonly='true'>
+                        </form>
+                        <div class="w-form-done"></div>
+                        <div class="w-form-fail"></div>
+                    </div>
+                    <div class="key-pad">
+                        <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterTransferAccountNumber(1)">1</a><a class="account-button w-button" data-ix="new-interaction-2" href="#" onclick="enterTransferAccountNumber(2)">2</a><a class="account-button w-button" href="#" onclick="enterTransferAccountNumber(3)">3</a>
+                        </div>
+                        <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterTransferAccountNumber(4)">4</a><a class="account-button w-button" href="#" onclick="enterTransferAccountNumber(5)">5</a><a class="account-button w-button" href="#" onclick="enterTransferAccountNumber(6)">6</a>
+                        </div>
+                        <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterTransferAccountNumber(7)">7</a><a class="account-button w-button" href="#" onclick="enterTransferAccountNumber(8)">8</a><a class="account-button w-button" href="#" onclick="enterTransferAccountNumber(9)">9</a>
+                        </div>
+                        <div class="key-pad-row w-container"><a class="account-button w-button" href="#" onclick="enterTransferAccountNumber(0)">0</a><a class="account-button delete-button w-button" href="#" onclick="deleteTransferAccountNumber()">Delete</a>
+                        </div>
+                    </div>
+                    <input class="gray-button" type="button" value="Back" onclick="onBackFromNumber()"/>
+                    <input class="green-button" type="button" value="Continue" onclick="onSelectAmountButton(parseInt(otherAmount))"/>
                 </div>
                 </center>
             </div>
-            <div class="content-right-box">
-            </div>
+            <div class='content-right-box'></div>
         </div>
         <!--<div class="nav-buttons" id="nav-buttons-withdraw"></div>-->
         <div id="myModal" class="modal"></div>
-    
     </body>
     <script>
         var otherAmount = '';
@@ -92,36 +116,102 @@
             }
             else{
                 sidebar();
+                navButtons();
+                // hideContinue();
+                accountselector();
+
             }
         });
         
         function onClickOtherAmount(){
             $(".amount-choices").css("display", "none");
-            $(".transfer-amount-other-section").css("display", "block");
+            $(".withdraw-amount-other-section").css("display", "inline-block");
         }
 
         function enterWidthdrawOtherNumber(number){
             clearNotif();
             otherAmount+=number+'';
-            $( ".transfer-other-amount-number").val('$'+numberWithCommas(parseInt(otherAmount)));
+            $( ".withdraw-other-amount-number").val('$'+numberWithCommas(parseInt(otherAmount)));
         }
 
         function onBackFromOther(){
             clearNotif();
             otherAmount='';
-            $( ".transfer-other-amount-number").val('');
+            $( ".withdraw-other-amount-number").val('');
             $(".amount-choices").css("display", "block");
-            $(".transfer-amount-other-section").css("display", "none");
+            $(".withdraw-amount-other-section").css("display", "none");
         }
 
         function deleteOtherAmountNumber(){
             if(otherAmount.length == 1 || otherAmount == NaN || otherAmount == ''){
-                $( ".transfer-other-amount-number").val('');
+                $( ".withdraw-other-amount-number").val('');
             }
             else{
-                $( ".transfer-other-amount-number").val('$'+numberWithCommas(parseInt(otherAmount.substring(0, otherAmount.length - 1))));
+                $( ".withdraw-other-amount-number").val('$'+numberWithCommas(parseInt(otherAmount.substring(0, otherAmount.length - 1))));
             }
             otherAmount = otherAmount.substring(0, otherAmount.length - 1);
+        }
+
+        function onSelectAmountButton(amount){
+            clearNotif();
+            if(session){
+                var accountData = getAccountData(session);
+                var from = $( ".select-account-dropdown" ).val();
+                if(from == 'chequing' || from == 'savings'){
+                    if(accountData[from] >= amount){
+                        $( ".select-account-dropdown" ).css("display", "none");
+                        $(".amount-choices").css("display", "none");
+                        $(".withdraw-amount-other-section").css("display", "none");
+                        $(".transfer-account-section").css("display", "block");
+                        // var d = new Date();
+                        // window.location.href = 'receipt.html?type=Withdraw&account='+from+'&amount='+amount+'&balance='+(accountData[from]-amount)+'&date='+d.toLocaleDateString();
+                    }
+                    else{
+                        pushNotif('Insufficient amount in '+from+' account');
+                        setTimeout(function(){ clearNotif() },2000);
+                    }
+                }
+                else{
+                    pushErrorNotif('You must select an account type');
+                    setTimeout(function(){ clearNotif() },2000);
+                }
+            }
+            
+        }
+
+        var toAccNumber = '';
+
+        function enterTransferAccountNumber(number){
+            if(toAccNumber.length < 19){
+                toAccNumber+=number+'';
+                if(toAccNumber.length==4 || toAccNumber.length==9 || toAccNumber.length==14){
+                    toAccNumber+='-'
+                }
+                $( ".transfer-account-amount-number").val(toAccNumber);
+            }
+        }
+
+        function deleteTransferAccountNumber(){
+            var lastchar = toAccNumber.substring(toAccNumber.length - 1);
+            if(lastchar=='-'){
+                $( ".transfer-account-amount-number").val(toAccNumber.substring(0, toAccNumber.length - 2));
+                toAccNumber = toAccNumber.substring(0, toAccNumber.length - 2);
+            }
+            else{
+                $( ".transfer-account-amount-number").val(toAccNumber.substring(0, toAccNumber.length - 1));
+                toAccNumber = toAccNumber.substring(0, toAccNumber.length - 1);
+            } 
+        }
+
+        function onBackFromNumber(){
+            toAccNumber = '';
+            $( ".select-account-dropdown" ).css("display", "block");
+            $(".amount-choices").css("display", "block");
+            $(".withdraw-amount-other-section").css("display", "none");
+            $(".transfer-account-section").css("display", "none");
+            $( ".transfer-account-amount-number").val('');
+            otherAmount='';
+            $( ".withdraw-other-amount-number").val('');
         }
     </script>
 </html>
