@@ -189,7 +189,7 @@
             }
             else if(toAccNumber != session){
                 var d = new Date();
-                window.location.href = 'receipt.html?type=Transfer&account_number='+toAccNumber+'&amount='+amount1+'&date='+d.toLocaleDateString()+'&balance='+(accountData[from]-amount1);
+                window.location.href = 'receipt.html?type=Transfer&account_number='+toAccNumber+'&account='+from+'&amount='+amount1+'&date='+d.toLocaleDateString()+'&balance='+(accountData[from]-amount1);
             }
             else{
                 pushErrorNotif('You can not send money to yourself');
