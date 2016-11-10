@@ -8,39 +8,43 @@
          <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="body">
-        <div class="top-banner">
-            <h1 class="error-text"></h1>
-        </div>
-
-        <div class="page-content">
-            <nav id="sidebar"></nav> 
-        
-            <div class="content-container">
-                <div id="title">
-                    <h1 class="greeting">Your Account Balances</h1>
-                </div>
-
+        <div style="display: flex; height: 100%;">
+           <div class="top-banner" style="position: absolute; width: 100%;">
+                <h1 class="error-text"></h1>
+            </div>
+            <div class="content-left-box">
+                <nav id="sidebar"></nav> 
+            </div>
+            <div class="content-middle-box">
+                <!--content here-->
                 <center>
-                <table class="balance-table">
-                    <tr>
-                        <td><h2>Chequing: </h2></td>
-                        <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
-                    </tr>
-                    <tr>
-                        <td><h2>Saving: </h2></td>
-                        <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
-                    </tr>
-                    <tr>
-                        <td><h2>Investment: </h2></td>
-                        <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
-                    </tr>
-                </table>
+                    <div id="title">
+                        <h1>Your Account Balances</h1>
+                    </div>
+
+                    <center>
+                    <table class="balance-table">
+                        <tr>
+                            <td><h2>Chequing: </h2></td>
+                            <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                        </tr>
+                        <tr>
+                            <td><h2>Saving: </h2></td>
+                            <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                        </tr>
+                        <tr>
+                            <td><h2>Investment: </h2></td>
+                            <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                        </tr>
+                    </table>
+                    </center>
                 </center>
             </div>
-
-            <!--<div class="nav-buttons" id="nav-buttons-balance"></div>-->
-
-            <div id="myModal" class="modal"></div>
+            <div class="content-right-box">
+            </div>
+        </div>
+        <!--<div class="nav-buttons" id="nav-buttons-withdraw"></div>-->
+        <div id="myModal" class="modal"></div>
 
         </div>
     </body>

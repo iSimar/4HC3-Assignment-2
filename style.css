@@ -183,6 +183,26 @@ input[type="submit"][disabled]:hover
     inset 0 1px 1px rgba(255,255,255,0.8);
 }
 
+.logout-button-1 {
+  /*position: absolute;
+  left: 5%;*/
+  background-color: #ec3838;
+  height: 70px;
+  width: 250px;
+  float: none;
+  clear: none;
+  font-size: 24px;
+  font-weight: 400;
+  box-shadow:
+    0 1px 2px #fff,
+    0 -1px 1px #666,
+    inset 0 -1px 1px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+}
+.logout-button-1:hover {
+  background-color: darkred;
+}
+
 .logout-button:hover {
   background-color: darkred;
 }
@@ -445,27 +465,28 @@ input[type="submit"][disabled]:hover
   clear: none;
   font-size: 24px;
   font-weight: 400;
-  position: absolute;
-  border-radius: 0px;
+  /*position: absolute;
+  border-radius: 0px;*/
 }
 
 #sidebar {
-  position: absolute;
+  /*position: absolute;*/
   text-align: center;
-  top: 83%;
+  /*top: 83%;
   left: 5%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  margin-right: 12px;
-  padding-right: 12px;
+  display: flex;*/
+  margin-right: 76px;
+  padding-top: 40%;
+  /*padding-right: 12px;
   float: left;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  flex-direction: column;
+  flex-direction: column;*/
 }
 
 @media (max-width: 991px) {
