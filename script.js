@@ -276,10 +276,8 @@ function deposityes() {
         res[0].innerHTML = "Total to be deposited: $" + totalDeposit;
     }, 1000);
     setTimeout(function(){
-        pushSuccessNotif("Deposit successful");
-    }, 2000);
-    setTimeout(function(){
-    }, 2000);
+        pushNotif("Press Continue to deposit amount");
+    }, 5000);
 }
 
 function depositno() {

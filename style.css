@@ -65,6 +65,7 @@
 .sessiontotal {
   position: relative;
   margin: auto;
+  color: green;
 }
 
 .nav-buttons {
