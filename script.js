@@ -73,7 +73,7 @@ function onClickContinue(){
         $(".login-header-titles-2").css("display", "block");
         $(".account-number").css("display", "none");
         $(".pin-number").css("display", "block");
-        $(".continue-button").css("display", "none");
+        $(".continue-button-2").css("display", "none");
         $(".login-button").css("display", "inline-block");
         $(".back-button").css("display", "inline-block");
     }
