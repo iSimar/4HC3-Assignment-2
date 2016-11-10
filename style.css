@@ -377,7 +377,7 @@
   background-color: darkred;
 }
 
-.sidebar a {
+#sidebar a {
   padding-top: 22.5px;
   border-top: solid 3px black;
   border-left: solid 3px black;
@@ -393,7 +393,7 @@
   border-radius: 0px;
 }
 
-.sidebar {
+#sidebar {
   position: absolute;
   text-align: center;
   top: 85%;
@@ -413,7 +413,7 @@
 }
 
 @media (max-width: 991px) {
-  .sidebar a {
+  #sidebar a {
     margin-left: 5%;
     font-size: 19px;
     width: 150px;
@@ -444,7 +444,7 @@
   .greeting {
     font-size: 25px;
   }
-  .sidebar a {
+  #sidebar a {
     font-size: 19px;
     width: 150px;
   }
@@ -463,7 +463,7 @@
   .greeting {
     margin-bottom: 64px;
   }
-  .sidebar a {
+  #sidebar a {
     margin-top: 79px;
     margin-left: 33%;
   }

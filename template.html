@@ -13,7 +13,7 @@
             <h1 class="error-text"></h1>
         </div>
         <div class="page-content">
-            <nav class="sidebar" id="sidebar">
+            <navid="sidebar">
             </nav>
         </div>
 
@@ -22,7 +22,6 @@
 
     </body>
     <script>
-        sidebar();
         $( document ).ready(function() {
             if(!session){
                 pushErrorNotif('You\'re not logged in. Redirecting to login page...');
@@ -30,6 +29,7 @@
                     window.location.href = 'index.html';
                 }, 2000);
             }
+            sidebar();
         });
     </script>
 </html>
