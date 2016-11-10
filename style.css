@@ -171,7 +171,9 @@
   font-weight: 400;
 }
 
-.account-number {
+.account-number,
+.transfer-other-amount-number,
+.withdraw-other-amount-number {
   display: block;
   width: 35%;
   margin-right: auto;
