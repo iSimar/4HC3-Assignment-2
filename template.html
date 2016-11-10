@@ -13,18 +13,23 @@
             <h1 class="error-text"></h1>
         </div>
         <div class="page-content">
-            <nav class="sidebar">
-                <a class="mainmenu-button w-button" href="index.html">Main Menu</a>
-                <a class="withdraw-button w-button" href="withdraw.html">Withdraw</a>
-                <a class="deposit-button w-button" href="#">Deposit</a>
-                <a class="transfer-button w-button" href="transfer.html">Transfer</a>
-                <a class="fastcash-button w-button" href="fastcash.html">$100 Fast Cash</a>
-                <a class="logout-button w-button" href="#" onclick="logout()">Logout</a>
-            </nav> 
+            <nav class="sidebar" id="sidebar">
+            </nav>
         </div>
 
 
 
 
     </body>
+    <script>
+        sidebar();
+        $( document ).ready(function() {
+            if(!session){
+                pushErrorNotif('You\'re not logged in. Redirecting to login page...');
+                setTimeout(function(){
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        });
+    </script>
 </html>

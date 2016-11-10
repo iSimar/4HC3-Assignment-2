@@ -211,6 +211,32 @@ function findGetParameter(parameterName) {
     }
     return result;
 }
+// TODO: DEPOSIT PAGE FUNCTIONS
+function depositCash(){
+    // count (simulated) cash and open a pop-up that lets user confirm whether value is correct
+    // update session total deposit amount
+}
+
+function depositCheque(){
+    // count (simulated) money in cheque and open a pop-up that lets user confirm whether value is correct
+    // update session total deposit amount
+}
+
+function depositTotal(){
+    // if savings is chosen, update data "savings" value with total deposit amount
+    // if chequing is chosen, update data "balance" value with total deposit amount
+}
+
+// SIDEBAR
+function sidebar() {
+    var x = document.getElementById("sidebar");
+    x.innerHTML = "<a class=\"mainmenu-button w-button\" href=\"menu.html\">Main Menu</a>" + 
+                "<a class=\"withdraw-button w-button\" href=\"withdraw.html\">Withdraw</a>" +
+                "<a class=\"deposit-button w-button\" href=\"#\">Deposit</a>" + 
+                "<a class=\"transfer-button w-button\" href=\"transfer.html\">Transfer</a>" +
+                "<a class=\"fastcash-button w-button\" href=\"fastcash.html\">$100 Fast Cash</a>" +
+                "<a class=\"logout-button w-button\" href=\"#\" onclick=\"logout()\">Logout</a>";
+}
 
 $( document ).ready(function() {
     if(session){

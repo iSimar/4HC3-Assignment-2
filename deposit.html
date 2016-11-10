@@ -11,13 +11,7 @@
             <h1 class="error-text"></h1>
         </div>
         <div class="page-content">
-            <nav class="sidebar">
-                <a class="mainmenu-button w-button" href="menu.html">Main Menu</a>
-                <a class="withdraw-button w-button" href="withdraw.html">Withdraw</a>
-                <a class="deposit-button w-button" href="#">Deposit</a>
-                <a class="transfer-button w-button" href="transfer.html">Transfer</a>
-                <a class="fastcash-button w-button" href="fastcash.html">$100 Fast Cash</a>
-                <a class="logout-button w-button" href="#" onclick="logout()">Logout</a>
+            <nav class="sidebar" id="sidebar">
             </nav> 
             <div class="deposit-container">
                 <h1 class="pagetitle">Deposit</h1>
@@ -44,6 +38,7 @@
                     window.location.href = 'index.html';
                 }, 2000);
             }
+            sidebar();
         });
     </script>
 </html>
