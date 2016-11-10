@@ -281,14 +281,44 @@ function fastcash() {
     }
 }
 
+function confirmNavigate(url) {
+
+    modal("Are you sure you want to leave this page? Information you entered will be lost.",1,1);
+
+    var m = document.getElementById('myModal');
+
+    m.style.display = "block";
+
+    var no = document.getElementsByClassName("no")[0];
+    var yes = document.getElementsByClassName("yes")[0];
+
+    // When the user clicks on NO, disregard navigation
+    no.onclick = function() {
+        m.style.display = "none";
+        pushNotif("Page navigation cancelled");
+        setTimeout(function(){
+            clearNotif();
+        }, 5000);
+    }
+
+    // When the user clicks on YES
+    yes.onclick = function() {
+        m.style.display = "none";
+        pushNotif("Navigate confirmed. Redirecting...");
+        setTimeout(function(){
+            clearNotif();
+        }, 5000);
+    }
+}
+
 // SIDEBAR
 function sidebar() {
     var x = document.getElementById("sidebar");
     x.innerHTML = "<a class=\"mainmenu-button w-button\" href=\"menu.html\">Main Menu</a>" + 
                 "<a class=\"balance-button w-button\" href=\"balance.html\">Check Balance</a>" +
-                "<a class=\"withdraw-button w-button\" href=\"withdraw.html\">Withdraw</a>" +
-                "<a class=\"deposit-button w-button\" href=\"deposit.html\">Deposit</a>" + 
-                "<a class=\"transfer-button w-button\" href=\"transfer.html\">Transfer</a>" +
+                "<a class=\"withdraw-button w-button w-button\" href=\"withdraw.html\" onclick=\"confirmNavigate(\"withdraw.html\")\">Withdraw</a>" +
+                "<a class=\"deposit-button w-button\" href=\"deposit.html\" onclick=\"confirmNavigate(\"deposit.html\")\">Deposit</a>" +
+                "<a class=\"transfer-button w-button w-button\" href=\"transfer.html\" onclick=\"confirmNavigate(\"transfer.html\")\">Transfer</a>" +
                 "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>";
 }
 
