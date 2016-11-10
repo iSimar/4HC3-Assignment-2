@@ -90,7 +90,7 @@
             }, 5000);
             sidebar();
             navButtons();
-            hideContinue();
+            //hideContinue();
         });
 
         function onCancel(){
@@ -108,6 +108,17 @@
                 print = true;
             };
             if(findGetParameter('type')=='Withdraw'){
+                addMoney(session, findGetParameter('account'), -parseInt(findGetParameter('amount')));
+                setTimeout(function(){
+                    if(print){
+                        window.location.href = 'success.html?print=yes';
+                    }
+                    else{
+                        window.location.href = 'success.html';
+                    }
+                }, 2000);
+            }
+            if(findGetParameter('type')=='Deposit'){
                 addMoney(session, findGetParameter('account'), -parseInt(findGetParameter('amount')));
                 setTimeout(function(){
                     if(print){

@@ -247,16 +247,18 @@ function modal(question,y,n,fy,fn) {
                 "</div>";
 }
 
+var totalDeposit = 0;
+
 function depositCash(){
     // Get the modal
     var m = document.getElementById('myModal');
 
-    pushNotif("Insert cash into slot within 10 seconds.");
+    pushNotif("Insert cash into slot within 5 seconds");
     
     setTimeout(function(){
         clearNotif();
-        modal("Counted cash. Is the deposit amount correct?","Yes","No","deposityes()","depositno()");
         m.style.display = "block";
+        modal("Counted cash. Is the deposit amount $100 correct?","Yes","No","deposityes()","depositno()");
     },5000);
 
     var yes = document.getElementsByClassName("yes")[0];
@@ -264,36 +266,41 @@ function depositCash(){
 }
 
 function deposityes() {
+    var m = document.getElementById('myModal');
+    m.style.display = "none";
+
     setTimeout(function(){
-        modal("Deposit request accepted. Processing...","","","","");
+        pushNotif("Deposit request accepted. Processing...");
+        totalDeposit += 100;
+        var res = document.getElementsByClassName("sessiontotal");
+        res[0].innerHTML = "Total to be deposited: $" + totalDeposit;
     }, 1000);
     setTimeout(function(){
-        modal("Deposit successful","","","","");
-    }, 3000);
+        pushSuccessNotif("Deposit successful");
+    }, 2000);
     setTimeout(function(){
-    window.location.href = 'receipt.html';
-    }, 5000);
+    }, 2000);
 }
 
 function depositno() {
         var m = document.getElementById('myModal');
+        m.style.display = "none";
         setTimeout(function(){
             clearNotif();
-            modal("Amount not correct. Please take your item from the dispenser.","","","","");
+            pushErrorNotif("Amount not correct. Please take your item from the dispenser");
         }, 2000);
-        m.style.display = "none";
 }
 
 function depositCheque(){
     // Get the modal
     var m = document.getElementById('myModal');
 
-    pushNotif("Insert cheque into slot within 10 seconds.");
+    pushNotif("Insert cheque into slot within 5 seconds");
     
     setTimeout(function(){
         clearNotif();
-        modal("Scanned cheque. Is the deposit amount correct?","Yes","No","deposityes()","depositno()");
         m.style.display = "block";
+        modal("Scanned cheque. Is the deposit amount $100 correct?","Yes","No","deposityes()","depositno()");
     },5000);
 
     var yes = document.getElementsByClassName("yes")[0];
@@ -301,8 +308,18 @@ function depositCheque(){
 }
 
 function depositTotal(){
-    // if savings is chosen, update data "savings" value with total deposit amount
-    // if chequing is chosen, update data "chequing" value with total deposit amount
+    if(session){
+        var accountData = getAccountData(session);
+        var from = $( ".select-account-dropdown" ).val();
+        if(from == 'chequing' || from == 'savings'){
+            var d = new Date();
+            window.location.href = 'receipt.html?type=Deposit&account='+from+'&amount='+totalDeposit+'&balance='+(accountData[from]+totalDeposit)+'&date='+d.toLocaleDateString();
+        }
+        else{
+            pushErrorNotif('You must select an account type');
+            setTimeout(function(){ clearNotif() },2000);
+        }
+    }
 }
 
 // FASTCASH
