@@ -163,7 +163,21 @@ function accountNumberValid(accNumber){
         return false;
     }
 }
-
+function getAccountIndex(accNumber){
+    if(data){
+        for(var i = 0; i<data.accounts.length; i++){
+            if(data.accounts[i].number==accNumber){
+                return i;
+            }
+            if(i==data.accounts.length-1){
+                return null;
+            }
+        }
+    }
+    else{
+        return null;
+    }
+}
 function getAccountData(accNumber){
     if(data){
         for(var i = 0; i<data.accounts.length; i++){
@@ -444,6 +458,12 @@ function unhideContinue() {
     var x = document.getElementsByClassName("continue-button");
     x[0].disabled = false;
     x[0].style.display = "inline-block";
+}
+
+function addMoney(accountNumber, account, amount){
+   var newData = getAccountData(accountNumber);
+   newData[account] += amount;
+   firebase.database().ref('data/accounts/' + getAccountIndex(accountNumber)).set(newData);
 }
 
 $( document ).ready(function() {
