@@ -311,6 +311,21 @@ function confirmNavigate(url) {
     }
 }
 
+// ACCOUNTSELECTOR
+function accountselector() {
+    var x = document.getElementById("accountselector");
+    var accountData = getAccountData(session);
+    x.innerHTML = "<div class=\"select-account\">"+
+                  "  <form data-name=\"withdraw-form\" data-redirect=\"#\" redirect=\"#\">"+
+                  "          <select class=\"select-account-dropdown\" data-name=\"select-account\" name=\"select-account\" onchange=\"unhideContinue();\">"+
+                  "              <option value=\"\">Select account...</option>"+
+                  "              <option value=\"chequing\">Chequing ($"+numberWithCommas(accountData.chequing)+")<span class=\"chequing-option-amount\"></span></option>"+
+                  "              <option value=\"savings\">Savings ($"+numberWithCommas(accountData.savings)+")<span class=\"savings-option-amount\"></span></option>"+
+                  "          </select>"+
+                  "  </form>"+
+                  " </div>";
+}
+
 // SIDEBAR
 function sidebar() {
     var x = document.getElementById("sidebar");
