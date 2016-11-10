@@ -231,22 +231,83 @@ function depositTotal(){
     // if chequing is chosen, update data "balance" value with total deposit amount
 }
 
+// MODAL
+function modal(question,y,n) {
+    var x = document.getElementById("myModal");
+    if(!y == 1) ystr = "";
+    else ystr = "<span class=\"yes\">YES</span>";
+    if(!n == 1) nstr = "";
+    else nstr = "<span class=\"no\">NO</span>" ;
+    x.innerHTML = "<div class=\"modal-content\">" +
+                nstr +
+                ystr +
+                "<div id=\"qc\"><p id=\"question\">" + question + "</p></div>" +
+                "</div>";
+}
+
 // FASTCASH
 function fastcash() {
-    if (confirm("Withdraw $100 from Chequing account?") == true) {
-        pushNotif("Processing withdrawal");
-        /*
-        TODO
-        if enough funds then pushSuccess
-        otherwise pushError
-        pushSuccess("Processing withdrawal");
-        pushError("Insufficient funds");
-        */
+    // Get the modal
+
+    modal("Withdraw $100 from Chequing account?",1,1);
+
+    var m = document.getElementById('myModal');
+
+    m.style.display = "block";
+
+    var no = document.getElementsByClassName("no")[0];
+    var yes = document.getElementsByClassName("yes")[0];
+
+    // When the user clicks on NO, disregard fastcash
+    no.onclick = function() {
+        m.style.display = "none";
+        pushNotif("Fast cash cancelled");
+        setTimeout(function(){
+            clearNotif();
+        }, 2000);
+    }
+
+    // When the user clicks on YES
+    yes.onclick = function() {
+        setTimeout(function(){
+            modal("Fast cash request accepted. Processing...",0,0);
+        }, 1000);
+        setTimeout(function(){
+            modal("Fast cash processing successful",0,0);
+        }, 3000);
         setTimeout(function(){
         window.location.href = 'receipt.html';
-        }, 2000);
-    } else {
-        pushNotif("Fast cash transaction cancelled");
+        }, 5000);
+    }
+}
+
+function confirmNavigate(url) {
+
+    modal("Are you sure you want to leave this page? Information you entered will be lost.",1,1);
+
+    var m = document.getElementById('myModal');
+
+    m.style.display = "block";
+
+    var no = document.getElementsByClassName("no")[0];
+    var yes = document.getElementsByClassName("yes")[0];
+
+    // When the user clicks on NO, disregard navigation
+    no.onclick = function() {
+        m.style.display = "none";
+        pushNotif("Page navigation cancelled");
+        setTimeout(function(){
+            clearNotif();
+        }, 5000);
+    }
+
+    // When the user clicks on YES
+    yes.onclick = function() {
+        m.style.display = "none";
+        pushNotif("Navigate confirmed. Redirecting...");
+        setTimeout(function(){
+            clearNotif();
+        }, 5000);
     }
 }
 
@@ -254,11 +315,80 @@ function fastcash() {
 function sidebar() {
     var x = document.getElementById("sidebar");
     x.innerHTML = "<a class=\"mainmenu-button w-button\" href=\"menu.html\">Main Menu</a>" + 
-                "<a class=\"withdraw-button w-button\" href=\"withdraw.html\">Withdraw</a>" +
-                "<a class=\"deposit-button w-button\" href=\"deposit.html\">Deposit</a>" + 
-                "<a class=\"transfer-button w-button\" href=\"transfer.html\">Transfer</a>" +
-                "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>" +
-                "<a class=\"logout-button w-button\" href=\"#\" onclick=\"logout()\">Logout</a>";
+                "<a class=\"balance-button w-button\" href=\"balance.html\">Check Balance</a>" +
+                "<a class=\"withdraw-button w-button w-button\" href=\"withdraw.html\" onclick=\"confirmNavigate(\"withdraw.html\")\">Withdraw</a>" +
+                "<a class=\"deposit-button w-button\" href=\"deposit.html\" onclick=\"confirmNavigate(\"deposit.html\")\">Deposit</a>" +
+                "<a class=\"transfer-button w-button w-button\" href=\"transfer.html\" onclick=\"confirmNavigate(\"transfer.html\")\">Transfer</a>" +
+                "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>";
+}
+
+// NAV-BUTTONS
+function navButtons() {
+    var x = document.getElementById("nav-buttons-deposit");
+    if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+        return;
+    }
+    x = document.getElementById("nav-buttons-index");
+    if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+        return;
+    }
+    x = document.getElementById("nav-buttons-balance");
+    if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+        return;
+    }
+    x = document.getElementById("nav-buttons-transfer");
+    if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+        return;
+    }
+    x = document.getElementById("nav-buttons-withdraw");
+    if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+                return;
+    }
+    x = document.getElementById("nav-buttons-receipt");
+    if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+        return;
+    }
+}
+
+function hideContinue() {
+    var x = document.getElementsByClassName("continue-button");
+    x[0].disabled = true;
+}
+
+function unhideContinue() {
+    var x = document.getElementsByClassName("continue-button");
+    x[0].disabled = false;
+    x[0].style.display = "inline-block";
 }
 
 $( document ).ready(function() {

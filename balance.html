@@ -9,35 +9,39 @@
     </head>
     <body class="body">
         <div class="top-banner">
-                    <div class="top-banner">
             <h1 class="error-text"></h1>
         </div>
-        <div class="menu-content">
-             <nav class="sidebar">
-                <a class="mainmenu-button w-button" href="menu.html">Main Menu</a>
-                <a class="withdraw-button w-button" href="withdraw.html">Withdraw</a>
-                <a class="deposit-button w-button" href="deposit.html">Deposit</a>
-                <a class="transfer-button w-button" href="transfer.html">Transfer</a>
-                <a class="fastcash-button w-button" href="fastcash.html">$100 Fast Cash</a>
-                <a class="logout-button w-button" href="#" onclick="logout()">Logout</a>
-            </nav> 
-        <center>
-            <h1 class="greeting">Your Account</h1>
-            <table class="balance-table">
-                <tr>
-                    <td><h2>Chequing: </h2></td>
-                    <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
-                </tr>
-                <tr>
-                    <td><h2>Saving: </h2></td>
-                    <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
-                </tr>
-                <tr>
-                    <td><h2>Investment: </h2></td>
-                    <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
-                </tr>
-            </table>
-        </center>
+
+        <div class="page-content">
+            <nav id="sidebar"></nav> 
+        
+            <div class="content-container">
+                <div id="title">
+                    <h1 class="greeting">Your Account Balances</h1>
+                </div>
+
+                <center>
+                <table class="balance-table">
+                    <tr>
+                        <td><h2>Chequing: </h2></td>
+                        <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Saving: </h2></td>
+                        <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Investment: </h2></td>
+                        <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                    </tr>
+                </table>
+                </center>
+            </div>
+
+            <!--<div class="nav-buttons" id="nav-buttons-balance"></div>-->
+
+            <div id="myModal" class="modal"></div>
+
         </div>
     </body>
     <script>
@@ -48,6 +52,8 @@
                     window.location.href = 'index.html';
                 }, 2000);
             }
+            sidebar()
+            navButtons();
         });
     </script>
 </html>

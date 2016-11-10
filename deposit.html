@@ -7,28 +7,59 @@
          <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
     <body class="body">
-        <div class="top-banner">
-            <h1 class="error-text"></h1>
-        </div>
-        <div class="page-content">
-            <nav class="sidebar" id="sidebar">
-            </nav> 
-            <div class="deposit-container">
-                <h1 class="pagetitle">Deposit</h1>
+        <div style="display: flex; height: 100%;">
+           <div class="top-banner" style="position: absolute; width: 100%;">
+                <h1 class="error-text"></h1>
+            </div>
+            <div class="content-left-box">
+                <nav id="sidebar"></nav> 
+            </div>
+            <div class="content-middle-box">
+                <!--content here-->
+                <center>
+                <div id="title">
+                    <h1>Deposit</h1>
+                </div>
+                <h3 class="sessiontotal">Total to be deposited: $200.00</h3>
                 <form data-name="deposit-form" data-redirect="#" redirect="#">
-                    <select class="select-account-dropdown" data-name="select-account" name="select-account">
+                    <select class="select-account-dropdown" data-name="select-account" name="select-account" onchange="unhideContinue();">
                         <option value="">Select account...</option>
                         <option value="chequing">Chequing</option>
                         <option value="savings">Savings</option>
                     </select>
                     <input class="cash-button" type="button" value="Deposit cash" data-name="cash-amount" onclick="depositCash()">
                     <input class="cheque-button" type="button" value="Deposit cheque" onclick="depositCheque()">
-                    <h3 class="sessiontotal">Total to be deposited: $200.00</h3>
-                    <input class="cancel-button" type="button" value="Cancel" onclick="window.location='index.html';">
-                    <input class="continue-button" type="submit" value="Continue" onclick="depositTotal()">
                 </form>
+                </center>
+            </div>
+            <div class="content-right-box">
             </div>
         </div>
+        <!--<div class="nav-buttons" id="nav-buttons-withdraw"></div>-->
+        <div id="myModal" class="modal"></div>
+
+        <!--<div class="top-banner">
+            <h1 class="error-text"></h1>
+        </div>
+
+
+        <div class="page-content">
+            <nav id="sidebar"></nav>
+
+            <div class="content-container">
+
+                <div id="title">
+                    <h1>Deposit</h1>
+                </div>
+
+                
+            </div>
+
+            <div class="nav-buttons" id="nav-buttons-deposit"></div>
+
+            <div id="myModal" class="modal"></div>
+
+        </div>-->
     </body>
     <script>
         $( document ).ready(function() {
@@ -38,7 +69,11 @@
                     window.location.href = 'index.html';
                 }, 2000);
             }
-            sidebar();
+            else{
+                sidebar();
+                navButtons();
+                hideContinue();
+            }
         });
     </script>
 </html>

@@ -9,38 +9,46 @@
     </head>
     <body class="body">
         <div class="top-banner">
-                    <div class="top-banner">
             <h1 class="error-text"></h1>
         </div>
-        <div class="menu-content">
-             <nav class="sidebar">
-                <a class="mainmenu-button w-button" href="menu.html">Main Menu</a>
-                <a class="withdraw-button w-button" href="withdraw.html">Withdraw</a>
-                <a class="deposit-button w-button" href="deposit.html">Deposit</a>
-                <a class="transfer-button w-button" href="transfer.html">Transfer</a>
-                <a class="fastcash-button w-button" href="fastcash.html">$100 Fast Cash</a>
-                <a class="logout-button w-button" href="#" onclick="logout()">Logout</a>
-            </nav> 
-        <center>
-            <h1 class="greeting">Your Receipt</h1>
-            <table class="balance-table" style="margin-bottom: 30px;">
-                <tr>
-                    <td><h2>Date: </h2></td>
-                    <td style="padding-left: 180px; color: gray;"><h2><span class="date-here"></span></h2></td>
-                </tr>
-                <tr>
-                    <td><h2>Withdraw Amount: </h2></td>
-                    <td style="padding-left: 180px; color: green;"><h2>$<span class="withdraw-amount"></span></h2></td>
-                </tr>
-                <tr>
-                    <td><h2>New Balance (Chequing): </h2></td>
-                    <td style="padding-left: 180px; color: green;"><h2>$<span class="new-balance"></span></h2></td>
-                </tr>
-            </table>
-            <input class="gray-button" type="button" value="Cancel" onclick="window.location='index.html';"/>
-            <input class="yellow-button" type="button" value="Print" onclick="window.location='index.html';"/>
-            <input class="green-button" type="button" value="Continue" onclick="window.location='index.html';"/>
-        </center>
+
+        <div class="page-content">
+            <nav id="sidebar"></nav> 
+            
+            <div class="content-container">
+                
+                <div id="title">
+                    <h1 class="greeting">Your Receipt</h1>
+                </div>
+                <center>
+                <table class="balance-table" style="margin-bottom: 30px;">
+                    <tr>
+                        <td><h2>Date: </h2></td>
+                        <td style="padding-left: 180px; color: gray;"><h2><span class="date-here"></span></h2></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Withdraw Amount: </h2></td>
+                        <td style="padding-left: 180px; color: green;"><h2>$<span class="withdraw-amount"></span></h2></td>
+                    </tr>
+                    <tr>
+                        <td><h2>New Balance (Chequing): </h2></td>
+                        <td style="padding-left: 180px; color: green;"><h2>$<span class="new-balance"></span></h2></td>
+                    </tr>
+                </table>
+                </center>
+
+                <form action="" onchange="unhideContinue()">
+                    <input type="radio" id="yes" name="yes" value="print">
+                    <label for="yes">Print Receipt</label><br>
+                    <input type="radio" id="no" name="no" value="no"><label for="no">No Receipt</label>
+                </form>
+
+            </div>
+
+            <div class="nav-buttons" id="nav-buttons-receipt"></div>
+
+            <div id="myModal" class="modal"></div>
+
         </div>
     </body>
     <script>
@@ -56,6 +64,13 @@
                 $( ".withdraw-amount" ).html(numberWithCommas(parseInt(findGetParameter('withdraw'))));
                 $( ".new-balance" ).html(numberWithCommas(parseInt(findGetParameter('balance'))));
             }
+            pushNotif("Select receipt printing mode to finish transaction");
+            setTimeout(function(){
+                clearNotif();
+            }, 5000);
+            sidebar();
+            navButtons();
+            hideContinue();
         });
     </script>
 </html>
