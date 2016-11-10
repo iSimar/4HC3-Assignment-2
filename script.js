@@ -345,8 +345,14 @@ function navButtons() {
     }
 }
 
+function hideContinue() {
+    var x = document.getElementsByClassName("continue-button");
+    x[0].disabled = true;
+}
+
 function unhideContinue() {
     var x = document.getElementsByClassName("continue-button");
+    x[0].disabled = false;
     x[0].style.display = "inline-block";
 }
 
