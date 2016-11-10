@@ -103,6 +103,7 @@
   height: 70px;
   width: 250px;
   float: right;
+  margin-right: 100px;
   clear: none;
   font-size: 24px;
   font-weight: 400;
@@ -123,7 +124,8 @@
   background-color: #E69632;
   height: 70px;
   width: 250px;
-  float: none;
+  float: left;
+  margin-left: 100px;
   clear: none;
   font-size: 24px;
   font-weight: 400;

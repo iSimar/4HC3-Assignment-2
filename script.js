@@ -231,14 +231,14 @@ function findGetParameter(parameterName) {
 }
 
 // MODAL
-function modal(question,y,n) {
+function modal(question,y,n,fy,fn) {
     var x = document.getElementById("myModal");
     
-    if(!y == 1) ystr = "";
-    else ystr = "<span class=\"yes\">YES</span>";
+    if(y == "") ystr = "";
+    else ystr = "<span class=\"yes\" onclick=\"" + fy + "\">" + y + "</span>";
     
-    if(!n == 1) nstr = "";
-    else nstr = "<span class=\"no\">NO</span>" ;
+    if(n == "") nstr = "";
+    else nstr = "<span class=\"no\" onclick=\"" + fn + "\">" + n + "</span>" ;
     
     x.innerHTML = "<div class=\"modal-content\">" +
                 nstr +
@@ -247,66 +247,68 @@ function modal(question,y,n) {
                 "</div>";
 }
 
-// TODO: DEPOSIT PAGE FUNCTIONS
 function depositCash(){
-    // count (simulated) cash and open a pop-up that lets user confirm whether value is correct
-    // update session total deposit amount
-
     // Get the modal
-    modal("Insert cash into cash slot. Press YES when finished.",1,0);
-
     var m = document.getElementById('myModal');
 
-    m.style.display = "block";
+    pushNotif("Insert cash into slot within 10 seconds.");
+    
+    setTimeout(function(){
+        clearNotif();
+        modal("Counted cash. Is the deposit amount correct?","Yes","No","deposityes()","depositno()");
+        m.style.display = "block";
+    },5000);
 
     var yes = document.getElementsByClassName("yes")[0];
-
-    yes.onclick = function() {
-            modal("Counting cash...",0,0);
-        setTimeout(function(){
-            modal("Is the deposit amount correct?",1,1);
-        }, 2000);
-    }
-
     var no = document.getElementsByClassName("no")[0];
+}
 
-    // When the user clicks on NO, disregard fastcash
-    no.onclick = function() {
-        modal("Amount not correct. Please take your cash back from the dispenser.",0,0);
+function deposityes() {
+    setTimeout(function(){
+        modal("Deposit request accepted. Processing...","","","","");
+    }, 1000);
+    setTimeout(function(){
+        modal("Deposit successful","","","","");
+    }, 3000);
+    setTimeout(function(){
+    window.location.href = 'receipt.html';
+    }, 5000);
+}
+
+function depositno() {
+        var m = document.getElementById('myModal');
         setTimeout(function(){
             clearNotif();
-        }, 6000);
+            modal("Amount not correct. Please take your item from the dispenser.","","","","");
+        }, 2000);
         m.style.display = "none";
-    }
-
-    // When the user clicks on YES
-    yes.onclick = function() {
-        setTimeout(function(){
-            modal("Deposit request accepted. Processing...",0,0);
-        }, 1000);
-        setTimeout(function(){
-            modal("Deposit successful",0,0);
-        }, 3000);
-        setTimeout(function(){
-        window.location.href = 'receipt.html';
-        }, 5000);
-    }
 }
 
 function depositCheque(){
-    // count (simulated) money in cheque and open a pop-up that lets user confirm whether value is correct
-    // update session total deposit amount
+    // Get the modal
+    var m = document.getElementById('myModal');
+
+    pushNotif("Insert cheque into slot within 10 seconds.");
+    
+    setTimeout(function(){
+        clearNotif();
+        modal("Scanned cheque. Is the deposit amount correct?","Yes","No","deposityes()","depositno()");
+        m.style.display = "block";
+    },5000);
+
+    var yes = document.getElementsByClassName("yes")[0];
+    var no = document.getElementsByClassName("no")[0];
 }
 
 function depositTotal(){
     // if savings is chosen, update data "savings" value with total deposit amount
-    // if chequing is chosen, update data "balance" value with total deposit amount
+    // if chequing is chosen, update data "chequing" value with total deposit amount
 }
 
 // FASTCASH
 function fastcash() {
     // Get the modal
-    modal("Withdraw $100 from Chequing account?",1,1);
+    modal("Withdraw $100 from Chequing account?","Yes","No","","");
 
     var m = document.getElementById('myModal');
 
@@ -326,17 +328,16 @@ function fastcash() {
 
     // When the user clicks on YES
     yes.onclick = function() {
-        pushNotif("Withdrawing $100 from Chequing Account...");
+        //pushNotif("Withdrawing $100 from Chequing Account...");
         setTimeout(function(){
-            modal("Fast cash request accepted. Processing...",0,0);
-            window.location.href = 'success.html?print=yes';
-        }, 1000);
+            modal("Fast cash request accepted. Processing...","","","","");
+        }, 2000);
         setTimeout(function(){
-            modal("Fast cash processing successful",0,0);
-        }, 3000);
+            modal("Fast cash processing successful","","","","");
+        }, 4000);
         setTimeout(function(){
-        window.location.href = 'receipt.html';
-        }, 5000);
+            window.location.href = 'receipt.html';
+        }, 8000);
     }
 }
 
@@ -401,50 +402,37 @@ function sidebar() {
 function navButtons() {
     var x = document.getElementById("nav-buttons-deposit");
     if(typeof(x) != 'undefined' && x != null) {
-        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
-                  "</form>";
+        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"depositTotal()\">";
         return;
     }
     x = document.getElementById("nav-buttons-index");
     if(typeof(x) != 'undefined' && x != null) {
-        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
-                  "</form>";
+        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"depositTotal()\">";
         return;
     }
     x = document.getElementById("nav-buttons-balance");
     if(typeof(x) != 'undefined' && x != null) {
-        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
-                  "</form>";
+        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Back\" onclick=\"window.location=\'index.html\';\">";
         return;
     }
     x = document.getElementById("nav-buttons-transfer");
     if(typeof(x) != 'undefined' && x != null) {
-        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
-                  "</form>";
+        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"depositTotal()\">";
         return;
     }
     x = document.getElementById("nav-buttons-withdraw");
     if(typeof(x) != 'undefined' && x != null) {
-        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
-                  "</form>";
+        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"onBackFromOther()\">" +
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"onSelectAmountButton(parseInt(otherAmount))\">";
                 return;
     }
     x = document.getElementById("nav-buttons-receipt");
     if(typeof(x) != 'undefined' && x != null) {
-        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
-                  "</form>";
+        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"onCancel()\">" +
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"onSelectAmountButton(parseInt(otherAmount))\">";
         return;
     }
 }
