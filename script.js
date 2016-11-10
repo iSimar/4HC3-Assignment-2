@@ -217,14 +217,14 @@ function findGetParameter(parameterName) {
 }
 
 // MODAL
-function modal(question,y,n) {
+function modal(question,y,n,fy,fn) {
     var x = document.getElementById("myModal");
     
-    if(!y == 1) ystr = "";
-    else ystr = "<span class=\"yes\">YES</span>";
+    if(y == "") ystr = "";
+    else ystr = "<span class=\"yes\" onclick=\"" + fy + "\">" + y + "</span>";
     
-    if(!n == 1) nstr = "";
-    else nstr = "<span class=\"no\">NO</span>" ;
+    if(n == "") nstr = "";
+    else nstr = "<span class=\"no\" onclick=\"" + fn + "\">" + n + "</span>" ;
     
     x.innerHTML = "<div class=\"modal-content\">" +
                 nstr +
@@ -233,60 +233,62 @@ function modal(question,y,n) {
                 "</div>";
 }
 
-// TODO: DEPOSIT PAGE FUNCTIONS
 function depositCash(){
-    // count (simulated) cash and open a pop-up that lets user confirm whether value is correct
-    // update session total deposit amount
-
     // Get the modal
-    modal("Insert cash into cash slot. Press YES when finished.",1,0);
-
     var m = document.getElementById('myModal');
 
-    m.style.display = "block";
+    pushNotif("Insert cash into slot within 10 seconds.");
+    
+    setTimeout(function(){
+        clearNotif();
+        modal("Counted cash. Is the deposit amount correct?","Yes","No","deposityes()","depositno()");
+        m.style.display = "block";
+    },5000);
 
     var yes = document.getElementsByClassName("yes")[0];
-
-    yes.onclick = function() {
-            modal("Counting cash...",0,0);
-        setTimeout(function(){
-            modal("Is the deposit amount correct?",1,1);
-        }, 2000);
-    }
-
     var no = document.getElementsByClassName("no")[0];
+}
 
-    // When the user clicks on NO, disregard fastcash
-    no.onclick = function() {
-        modal("Amount not correct. Please take your cash back from the dispenser.",0,0);
+function deposityes() {
+    setTimeout(function(){
+        modal("Deposit request accepted. Processing...","","","","");
+    }, 1000);
+    setTimeout(function(){
+        modal("Deposit successful","","","","");
+    }, 3000);
+    setTimeout(function(){
+    window.location.href = 'receipt.html';
+    }, 5000);
+}
+
+function depositno() {
+        var m = document.getElementById('myModal');
         setTimeout(function(){
             clearNotif();
-        }, 6000);
+            modal("Amount not correct. Please take your item from the dispenser.","","","","");
+        }, 2000);
         m.style.display = "none";
-    }
-
-    // When the user clicks on YES
-    yes.onclick = function() {
-        setTimeout(function(){
-            modal("Deposit request accepted. Processing...",0,0);
-        }, 1000);
-        setTimeout(function(){
-            modal("Deposit successful",0,0);
-        }, 3000);
-        setTimeout(function(){
-        window.location.href = 'receipt.html';
-        }, 5000);
-    }
 }
 
 function depositCheque(){
-    // count (simulated) money in cheque and open a pop-up that lets user confirm whether value is correct
-    // update session total deposit amount
+    // Get the modal
+    var m = document.getElementById('myModal');
+
+    pushNotif("Insert cheque into slot within 10 seconds.");
+    
+    setTimeout(function(){
+        clearNotif();
+        modal("Scanned cheque. Is the deposit amount correct?","Yes","No","deposityes()","depositno()");
+        m.style.display = "block";
+    },5000);
+
+    var yes = document.getElementsByClassName("yes")[0];
+    var no = document.getElementsByClassName("no")[0];
 }
 
 function depositTotal(){
     // if savings is chosen, update data "savings" value with total deposit amount
-    // if chequing is chosen, update data "balance" value with total deposit amount
+    // if chequing is chosen, update data "chequing" value with total deposit amount
 }
 
 // FASTCASH
