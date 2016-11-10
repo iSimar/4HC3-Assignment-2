@@ -107,6 +107,8 @@
 }
 
 .menu-container {
+  position: absolute;
+  left: 30%;
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -165,22 +167,72 @@
   margin-bottom: 28px;
 }
 
+.mainmenu-button {
+  bottom: 350px;
+}
+
+.withdraw-button {
+  bottom: 280px;
+}
+
+.deposit-button {
+  bottom: 210px;
+}
+
+.transfer-button {
+  bottom: 140px;
+}
+
+.fastcash-button {
+  bottom: 70px;
+}
+
 .logout-button {
-  position: absolute;
-  display: inline-block;
-  margin-top: 35px;
+  bottom: 0px;
+  border-bottom: solid 3px black;
+}
+
+.sidebar a {
+  padding-top: 22.5px;
+  border-top: solid 3px black;
+  border-left: solid 3px black;
+  border-right: solid 3px black;
+  height: 70px;
+  width: 250px;
   margin-left: 16%;
-  padding: 16px 26px;
   float: none;
   clear: none;
-  background-color: #ec6a38;
+  background-color: green;
   font-size: 24px;
   font-weight: 400;
+  position: absolute;
+  border-radius: 0px;
+}
+
+.sidebar {
+  position: absolute;
+  text-align: center;
+  top: 85%;
+  left: 2%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 12px;
+  padding-right: 12px;
+  float: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 @media (max-width: 991px) {
-  .logout-button {
+  .sidebar a {
     margin-left: 5%;
+    font-size: 19px;
+    width: 150px;
   }
 }
 
@@ -188,8 +240,9 @@
   .greeting {
     font-size: 25px;
   }
-  .logout-button {
+  .sidebar a {
     font-size: 19px;
+    width: 150px;
   }
 }
 
@@ -206,7 +259,7 @@
   .greeting {
     margin-bottom: 64px;
   }
-  .logout-button {
+  .sidebar a {
     margin-top: 79px;
     margin-left: 33%;
   }
