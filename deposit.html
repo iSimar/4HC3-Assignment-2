@@ -10,11 +10,14 @@
         <div class="top-banner">
             <h1 class="error-text"></h1>
         </div>
+
+        <div id="title">
+            <h1 class="pagetitle">Deposit</h1>
+        </div>
+        
         <div class="page-content">
-            <nav id="sidebar">
-            </nav> 
-            <div class="deposit-container">
-                <h1 class="pagetitle">Deposit</h1>
+            <nav id="sidebar"></nav> 
+            <div class="content-container">
                 <form data-name="deposit-form" data-redirect="#" redirect="#">
                     <select class="select-account-dropdown" data-name="select-account" name="select-account">
                         <option value="">Select account...</option>
@@ -24,10 +27,9 @@
                     <input class="cash-button" type="button" value="Deposit cash" data-name="cash-amount" onclick="depositCash()">
                     <input class="cheque-button" type="button" value="Deposit cheque" onclick="depositCheque()">
                     <h3 class="sessiontotal">Total to be deposited: $200.00</h3>
-                    <input class="cancel-button" type="button" value="Cancel" onclick="window.location='index.html';">
-                    <input class="continue-button" type="submit" value="Continue" onclick="depositTotal()">
                 </form>
             </div>
+            <div id="nav-buttons"></div>
         </div>
     </body>
     <script>
@@ -39,6 +41,7 @@
                 }, 2000);
             }
             sidebar();
+            navButtons();
         });
     </script>
 </html>

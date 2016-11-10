@@ -9,37 +9,53 @@
     </head>
     <body class="body">
         <div class="top-banner">
-                    <div class="top-banner">
             <h1 class="error-text"></h1>
         </div>
-        <div class="menu-content">
-             <nav id="sidebar">
-            </nav> 
-        <center>
-            <h1 class="greeting">Amount to Withdraw</h1>
-            <div class="icons-row">
-            <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_9653_cc.ico" srcset="images/noun_9653_cc.ico 500w, images/noun_9653_cc.ico 530w">
-                <h3 class="icon-text">$20</h3>
-            </div>
-            <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_614719_cc.ico" srcset="images/noun_614719_cc.ico 500w, images/noun_614719_cc.ico 528w">
-                <h3 class="icon-text">$40</h3>
-            </div>
-            <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_203832_cc.ico" srcset="images/noun_203832_cc.ico 500w, images/noun_203832_cc.ico 530w">
-                <h3 class="icon-text">$60</h3>
-            </div>
-            </div>
-            <div class="icons-row">
-            <div class="menu-icon-button"><img class="icon" src="images/noun_468117_cc.ico">
-                <h3 class="icon-text">$80</h3>
-            </div>
-            <div class="menu-icon-button"><img class="icon" src="images/noun_12777_cc.ico">
-                <h3 class="icon-text">$100</h3>
-            </div>
-            <div class="menu-icon-button"><img class="icon" src="images/noun_666302_cc.ico">
-                <h3 class="icon-text">Other</h3>
-            </div>
-            </div>
-        </center>
+
+        <div id="title">
+            <h1 class="greeting">Withdraw</h1>
+        </div>
+            
+        <div class="page-content">
+            <nav id="sidebar"></nav> 
+            
+            <div class="content-container">
+                <center>
+                <div class="select-account">
+                    <form data-name="withdraw-form" data-redirect="#" redirect="#">
+                        <select class="select-account-dropdown" data-name="select-account" name="select-account">
+                            <option value="">Select account...</option>
+                            <option value="chequing">Chequing</option>
+                            <option value="savings">Savings</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="icons-row">
+                    <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_9653_cc.ico" srcset="images/noun_9653_cc.ico 500w, images/noun_9653_cc.ico 530w">
+                        <h3 class="icon-text">$20</h3>
+                    </div>
+                    <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_614719_cc.ico" srcset="images/noun_614719_cc.ico 500w, images/noun_614719_cc.ico 528w">
+                        <h3 class="icon-text">$40</h3>
+                    </div>
+                    <div class="menu-icon-button"><img class="icon" sizes="115px" src="images/noun_203832_cc.ico" srcset="images/noun_203832_cc.ico 500w, images/noun_203832_cc.ico 530w">
+                        <h3 class="icon-text">$60</h3>
+                    </div>
+                </div>
+                <div class="icons-row">
+                    <div class="menu-icon-button"><img class="icon" src="images/noun_468117_cc.ico">
+                        <h3 class="icon-text">$80</h3>
+                    </div>
+                    <div class="menu-icon-button"><img class="icon" src="images/noun_12777_cc.ico">
+                        <h3 class="icon-text">$100</h3>
+                    </div>
+                    <div class="menu-icon-button"><img class="icon" src="images/noun_666302_cc.ico">
+                    <h3 class="icon-text">Other</h3>
+                </div>
+                </div>
+            </center>
+        </div>
+
+        <div id="nav-buttons"></div>
         </div>
     </body>
     <script>
@@ -51,6 +67,7 @@
                 }, 2000);
             }
             sidebar();
+            navButtons();
         });
     </script>
 </html>

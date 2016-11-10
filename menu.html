@@ -9,15 +9,19 @@
     </head>
     <body class="body">
         <div class="top-banner">
-                    <div class="top-banner">
             <h1 class="error-text"></h1>
         </div>
-        <div class="menu-content">
+
+        <div id="title">
+            <h1 class="greeting">Hello, <span class="name-here"></span>!</h1>
+        </div>
+
+        <div class="page-content">
             <nav id="sidebar">
-                <a class="logout-button w-button" href="#" onclick="logout()">Logout</a>
+                <a class="logout-button" href="#" onclick="logout()">Logout</a>
             </nav>
+
             <div class="menu-container">
-                <h1 class="greeting">Hello, <span class="name-here"></span>!</h1>
                 <div class="icons-row">
                 <div class="menu-icon-button" onclick="window.location.href = 'withdraw.html';"><img class="icon" sizes="115px" src="images/noun_309257_cc.png" srcset="images/noun_309257_cc.png 500w, images/noun_309257_cc.png 530w">
                     <h3 class="icon-text">Withdraw</h3>
@@ -35,6 +39,7 @@
                 </div>
                 </div>
             </div>
+
         </div>
     </body>
     <script>

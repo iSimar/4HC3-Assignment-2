@@ -12,26 +12,35 @@
                     <div class="top-banner">
             <h1 class="error-text"></h1>
         </div>
-        <div class="menu-content">
-             <nav id="sidebar">
-            </nav> 
-        <center>
-            <h1 class="greeting">Your Account</h1>
-            <table class="balance-table">
-                <tr>
-                    <td><h2>Chequing: </h2></td>
-                    <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
-                </tr>
-                <tr>
-                    <td><h2>Saving: </h2></td>
-                    <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
-                </tr>
-                <tr>
-                    <td><h2>Investment: </h2></td>
-                    <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
-                </tr>
-            </table>
-        </center>
+        
+        <div id="title">
+            <h1 class="pagetitle">Your Account Balances</h1>
+        </div>
+        
+        <div class="page-content">
+            <nav id="sidebar"></nav> 
+        
+            <div class="content-container">
+                <center>
+                <table class="balance-table">
+                    <tr>
+                        <td><h2>Chequing: </h2></td>
+                        <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Saving: </h2></td>
+                        <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Investment: </h2></td>
+                        <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                    </tr>
+                </table>
+                </center>
+            </div>
+
+            <div id="nav-buttons"></div>
+
         </div>
     </body>
     <script>
@@ -43,6 +52,7 @@
                 }, 2000);
             }
             sidebar()
+            navButtons();
         });
     </script>
 </html>
