@@ -232,11 +232,15 @@ function depositTotal(){
 }
 
 // MODAL
-function modal(question) {
+function modal(question,y,n) {
     var x = document.getElementById("myModal");
+    if(!y == 1) ystr = "";
+    else ystr = "<span class=\"yes\">YES</span>";
+    if(!n == 1) nstr = "";
+    else nstr = "<span class=\"no\">NO</span>" ;
     x.innerHTML = "<div class=\"modal-content\">" +
-                "<span class=\"no\">NO</span>" +
-                "<span class=\"yes\">YES</span>" +
+                nstr +
+                ystr +
                 "<div id=\"qc\"><p id=\"question\">" + question + "</p></div>" +
                 "</div>";
 }
@@ -245,7 +249,7 @@ function modal(question) {
 function fastcash() {
     // Get the modal
 
-    modal("Withdraw $100 from Chequing account?");
+    modal("Withdraw $100 from Chequing account?",1,1);
 
     var m = document.getElementById('myModal');
 
@@ -259,17 +263,15 @@ function fastcash() {
         m.style.display = "none";
         pushNotif("Fast cash cancelled");
         setTimeout(function(){
-        window.location.href = 'receipt.html';
+            clearNotif();
         }, 2000);
     }
 
     // When the user clicks on YES
     yes.onclick = function() {
-        m.style.display = "none";
-        pushNotif("Fast cash processing");
         setTimeout(function(){
-        pushSuccessNotif("Fast cash transaction accepted");
-        }, 2000);
+            modal("Fast cash request accepted. Processing...",0,0);
+        }, 1000);
         setTimeout(function(){
         window.location.href = 'receipt.html';
         }, 5000);
