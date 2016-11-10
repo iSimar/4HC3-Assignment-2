@@ -231,14 +231,33 @@ function depositTotal(){
     // if chequing is chosen, update data "balance" value with total deposit amount
 }
 
+// FASTCASH
+function fastcash() {
+    if (confirm("Withdraw $100 from Chequing account?") == true) {
+        pushNotif("Processing withdrawal");
+        /*
+        TODO
+        if enough funds then pushSuccess
+        otherwise pushError
+        pushSuccess("Processing withdrawal");
+        pushError("Insufficient funds");
+        */
+        setTimeout(function(){
+        window.location.href = 'receipt.html';
+        }, 2000);
+    } else {
+        pushNotif("Fast cash transaction cancelled");
+    }
+}
+
 // SIDEBAR
 function sidebar() {
     var x = document.getElementById("sidebar");
     x.innerHTML = "<a class=\"mainmenu-button w-button\" href=\"menu.html\">Main Menu</a>" + 
                 "<a class=\"withdraw-button w-button\" href=\"withdraw.html\">Withdraw</a>" +
-                "<a class=\"deposit-button w-button\" href=\"#\">Deposit</a>" + 
+                "<a class=\"deposit-button w-button\" href=\"deposit.html\">Deposit</a>" + 
                 "<a class=\"transfer-button w-button\" href=\"transfer.html\">Transfer</a>" +
-                "<a class=\"fastcash-button w-button\" href=\"fastcash.html\">$100 Fast Cash</a>" +
+                "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>" +
                 "<a class=\"logout-button w-button\" href=\"#\" onclick=\"logout()\">Logout</a>";
 }
 
