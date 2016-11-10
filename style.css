@@ -1,12 +1,4 @@
-body {
-  -moz-transform: scale(0.75);
-  zoom: 75%;
-}
-
 .content-container {
-  /*position: absolute;
-  right: 5%;
-  top: 10%;*/
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -29,9 +21,8 @@ body {
 }
 
 .cash-button {
-  position: absolute;
-  left: 25%;
   bottom: 50%;
+  margin-right: 20px;
   background-color: rgb(77,158,248);
   height: 50px;
   width: 200px;
@@ -51,9 +42,7 @@ body {
 }
 
 .cheque-button {
-  position: absolute;
-  right: 25%;
-  margin: auto;
+  margin-left: 20px;
   bottom: 50%;
   background-color: rgb(77,158,248);
   height: 50px;
@@ -79,9 +68,6 @@ body {
 }
 
 .nav-buttons {
-  position: absolute;
-  bottom: 5%;
-  width: 100%;
 }
 
 .green-button, .yellow-button, .gray-button{
@@ -113,12 +99,10 @@ body {
 }
 
 .continue-button {
-  position: absolute;
-  right: 5%;
   background-color: #48a33c;
   height: 70px;
   width: 250px;
-  float: none;
+  float: right;
   clear: none;
   font-size: 24px;
   font-weight: 400;
@@ -133,24 +117,7 @@ body {
   background-color: #26811a;
 }
 
-button[disabled]:active, button[disabled],
-input[type="button"][disabled]:active,
-input[type="button"][disabled],
-input[type="submit"][disabled]:active,
-input[type="submit"][disabled] ,
-button[disabled]:hover,
-input[type="button"][disabled]:hover,
-input[type="submit"][disabled]:hover
-{
-  color: gray;
-  cursor: inherit;
-  background-color: #ddd;
-  background: #ddd;
-}
-
 .cancel-button {
-  position: relative;
-  left: 40%;
   width: 150px;
   height: 60px;
   background-color: #E69632;
@@ -187,6 +154,21 @@ input[type="submit"][disabled]:hover
 }
 .logout-button-1:hover {
   background-color: darkred;
+}
+
+button[disabled]:active, button[disabled],
+input[type="button"][disabled]:active,
+input[type="button"][disabled],
+input[type="submit"][disabled]:active,
+input[type="submit"][disabled] ,
+button[disabled]:hover,
+input[type="button"][disabled]:hover,
+input[type="submit"][disabled]:hover
+{
+  color: gray;
+  cursor: inherit;
+  background-color: #ddd;
+  background: #ddd;
 }
 
 .select-account-dropdown {
@@ -466,17 +448,14 @@ input[type="submit"][disabled]:hover
 
 @media (max-width: 991px) {
   #sidebar a {
-    margin-left: 5%;
     font-size: 19px;
     width: 150px;
   }
   .continue-button {
-    margin-left: 5%;
     font-size: 19px;
     width: 150px;    
   }
   .cancel-button {
-    margin-left: 5%;
     font-size: 19px;
     width: 150px;    
   }
@@ -485,12 +464,10 @@ input[type="submit"][disabled]:hover
     width: 150px;    
   }
   .cash-button {
-    margin-left: 5%;
     font-size: 15px;
     width: 100px;   
   }
   .cheque-button {
-    margin-left: 5%;
     font-size: 15px;
     width: 100px;  
   }
@@ -505,12 +482,10 @@ input[type="submit"][disabled]:hover
     width: 100px;
   }
   .continue-button {
-    margin-left: 5%;
     font-size: 18px;
     width: 100px;    
   }
   .cancel-button {
-    margin-left: 5%;
     font-size: 18px;
     width: 100px;    
   }
@@ -519,12 +494,10 @@ input[type="submit"][disabled]:hover
     width: 100px;    
   }
   .cash-button {
-    margin-left: 5%;
     font-size: 15px;
     width: 80px;   
   }
   .cheque-button {
-    margin-left: 5%;
     font-size: 15px;
     width: 80px;  
   }
@@ -550,12 +523,10 @@ input[type="submit"][disabled]:hover
     font-size: 12px;
   }
   .continue-button {
-    margin-left: 5%;
     font-size: 15px;
     width: 80px;    
   }
   .cancel-button {
-    margin-left: 5%;
     font-size: 15px;
     width: 80px;    
   }
@@ -564,12 +535,10 @@ input[type="submit"][disabled]:hover
     width: 80px;    
   }
   .cash-button {
-    margin-left: 5%;
     font-size: 12px;
     width: 50px;   
   }
   .cheque-button {
-    margin-left: 5%;
     font-size: 12px;
     width: 50px;  
   }
