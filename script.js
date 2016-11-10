@@ -273,6 +273,9 @@ function fastcash() {
             modal("Fast cash request accepted. Processing...",0,0);
         }, 1000);
         setTimeout(function(){
+            modal("Fast cash processing successful",0,0);
+        }, 3000);
+        setTimeout(function(){
         window.location.href = 'receipt.html';
         }, 5000);
     }
