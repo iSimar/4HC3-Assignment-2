@@ -26,15 +26,15 @@
                     <table class="balance-table">
                         <tr>
                             <td><h2>Chequing: </h2></td>
-                            <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                            <td style="padding-left: 180px; color: green;"><h2>$<span class="chequing-here"></span></h2></td>
                         </tr>
                         <tr>
                             <td><h2>Saving: </h2></td>
-                            <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                            <td style="padding-left: 180px; color: green;"><h2>$<span class="savings-here"></span></h2></td>
                         </tr>
                         <tr>
                             <td><h2>Investment: </h2></td>
-                            <td style="padding-left: 180px; color: green;"><h2>$10,1230</h2></td>
+                            <td style="padding-left: 180px; color: green;"><h2>$<span class="investment-here"></span></h2></td>
                         </tr>
                     </table>
                     </center>
@@ -56,8 +56,14 @@
                     window.location.href = 'index.html';
                 }, 2000);
             }
-            sidebar()
-            navButtons();
+            else{
+                sidebar()
+                navButtons();
+                var accountData = getAccountData(session);
+                $( ".chequing-here" ).html(numberWithCommas(accountData.chequing));
+                $( ".savings-here" ).html(numberWithCommas(accountData.savings));
+                $( ".investment-here" ).html(numberWithCommas(accountData.investment));
+            } 
         });
     </script>
 </html>
