@@ -336,7 +336,8 @@ function fastcash() {
             modal("Fast cash processing successful","","","","");
         }, 4000);
         setTimeout(function(){
-            window.location.href = 'receipt.html';
+            var d = new Date();
+            window.location.href = 'receipt.html?type=Withdraw&account=chequing&amount=100&balance=2460&date='+d.toLocaleDateString();
         }, 8000);
     }
 }
