@@ -31,6 +31,7 @@
                             <td><h2>Date: </h2></td>
                             <td style="padding-left: 180px; color: gray;"><h2><span class="date-here"></span></h2></td>
                         </tr>
+                        <span class="to-account-number-row"></span>
                         <tr>
                             <td><h2><span class="type-here"></span> Amount: </h2></td>
                             <td style="padding-left: 180px; color: green;"><h2>$<span class="amount-here"></span></h2></td>
@@ -75,6 +76,13 @@
                 $( ".date-here" ).html(findGetParameter('date'));
                 $( ".amount-here" ).html(numberWithCommas(parseInt(findGetParameter('amount'))));
                 $( ".new-balance" ).html(numberWithCommas(parseInt(findGetParameter('balance'))));
+                var account_number = findGetParameter('account_number');
+                if(account_number){
+                    $( ".to-account-number-row" ).html("<tr>"+
+                            "<td><h2>Transfer To: </h2></td>"+
+                            "<td style=\"padding-left: 180px;\"><h3>"+account_number+"</h3></td>"+
+                        "</tr>");
+                }
             }
             pushNotif("Select receipt printing mode to finish transaction");
             setTimeout(function(){

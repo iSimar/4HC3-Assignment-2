@@ -96,7 +96,7 @@
                         </div>
                     </div>
                     <input class="gray-button" type="button" value="Back" onclick="onBackFromNumber()"/>
-                    <input class="green-button" type="button" value="Continue" onclick="onSelectAmountButton(parseInt(otherAmount))"/>
+                    <input class="green-button" type="button" value="Continue" onclick="onContinueNumber()"/>
                 </div>
                 </center>
             </div>
@@ -151,20 +151,21 @@
             }
             otherAmount = otherAmount.substring(0, otherAmount.length - 1);
         }
-
+        var amount1 = 0;
+        var accountData = null;
+        var from = null;
         function onSelectAmountButton(amount){
             clearNotif();
             if(session){
-                var accountData = getAccountData(session);
-                var from = $( ".select-account-dropdown" ).val();
+                accountData = getAccountData(session);
+                from = $( ".select-account-dropdown" ).val();
                 if(from == 'chequing' || from == 'savings'){
                     if(accountData[from] >= amount){
+                        amount1 = amount;
                         $( ".select-account-dropdown" ).css("display", "none");
                         $(".amount-choices").css("display", "none");
                         $(".withdraw-amount-other-section").css("display", "none");
                         $(".transfer-account-section").css("display", "block");
-                        // var d = new Date();
-                        // window.location.href = 'receipt.html?type=Withdraw&account='+from+'&amount='+amount+'&balance='+(accountData[from]-amount)+'&date='+d.toLocaleDateString();
                     }
                     else{
                         pushNotif('Insufficient amount in '+from+' account');
@@ -178,9 +179,17 @@
             }
             
         }
-
         var toAccNumber = '';
 
+
+        function onContinueNumber(){
+            var d = new Date();
+            window.location.href = 'receipt.html?type=Transfer&account_number='+toAccNumber+'&amount='+amount1+'&date='+d.toLocaleDateString()+'&balance='+(accountData[from]-amount1);
+            // var d = new Date();
+            // window.location.href = 'receipt.html?type=Transfer&account='+from+'&amount='+amount1+'&balance='+(accountData[from]-amount1)+'&date='+d.toLocaleDateString();
+        }
+
+        
         function enterTransferAccountNumber(number){
             if(toAccNumber.length < 19){
                 toAccNumber+=number+'';
