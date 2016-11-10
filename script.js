@@ -329,16 +329,26 @@ function fastcash() {
     // When the user clicks on YES
     yes.onclick = function() {
         //pushNotif("Withdrawing $100 from Chequing Account...");
-        setTimeout(function(){
-            modal("Fast cash request accepted. Processing...","","","","");
-        }, 2000);
-        setTimeout(function(){
-            modal("Fast cash processing successful","","","","");
-        }, 4000);
-        setTimeout(function(){
+        if(getAccountData(session).chequing >= 100){
             var d = new Date();
             window.location.href = 'receipt.html?type=Withdraw&account=chequing&amount=100&balance=2460&date='+d.toLocaleDateString();
-        }, 8000);
+        }
+        else{
+            m.style.display = "none";
+            pushNotif("Fast cash cancelled. Insufficent amount in chequing account.");
+            setTimeout(function(){
+                clearNotif();
+            }, 2000);
+        }
+        // setTimeout(function(){
+        //     modal("Fast cash request accepted. Processing...","","","","");
+        // }, 2000);
+        // setTimeout(function(){
+        //     modal("Fast cash processing successful","","","","");
+        // }, 4000);
+        // setTimeout(function(){
+            
+        // }, 8000);
     }
 }
 
