@@ -461,9 +461,11 @@ function unhideContinue() {
 }
 
 function addMoney(accountNumber, account, amount){
+   pushSuccessNotif('Processing transaction...');
    var newData = getAccountData(accountNumber);
    newData[account] += amount;
    firebase.database().ref('data/accounts/' + getAccountIndex(accountNumber)).set(newData);
+   setTimeout(function(){clearNotif()}, 2000);
 }
 
 $( document ).ready(function() {

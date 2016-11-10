@@ -446,6 +446,13 @@ input[type="submit"][disabled]:hover
   padding-top: 40%;
 }
 
+
+
+@media (max-width: 1324px) {
+  .content-right-box{
+    display: none;
+  }
+}
 @media (max-width: 991px) {
   #sidebar a {
     font-size: 19px;
