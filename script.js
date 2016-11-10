@@ -231,22 +231,47 @@ function depositTotal(){
     // if chequing is chosen, update data "balance" value with total deposit amount
 }
 
+// MODAL
+function modal(question) {
+    var x = document.getElementById("myModal");
+    x.innerHTML = "<div class=\"modal-content\">" +
+                "<span class=\"no\">NO</span>" +
+                "<span class=\"yes\">YES</span>" +
+                "<div id=\"qc\"><p id=\"question\">" + question + "</p></div>" +
+                "</div>";
+
+
+}
+
 // FASTCASH
 function fastcash() {
-    if (confirm("Withdraw $100 from Chequing account?") == true) {
-        pushNotif("Processing withdrawal");
-        /*
-        TODO
-        if enough funds then pushSuccess
-        otherwise pushError
-        pushSuccess("Processing withdrawal");
-        pushError("Insufficient funds");
-        */
+    // Get the modal
+
+    modal("Withdraw $100 from Chequing account?");
+
+    var m = document.getElementById('myModal');
+
+    m.style.display = "block";
+
+    var no = document.getElementsByClassName("no")[0];
+    var yes = document.getElementsByClassName("yes")[0];
+
+    // When the user clicks on NO, disregard fastcash
+    no.onclick = function() {
+        m.style.display = "none";
+        pushNotif("Fast cash cancelled");
         setTimeout(function(){
         window.location.href = 'receipt.html';
         }, 2000);
-    } else {
-        pushNotif("Fast cash transaction cancelled");
+    }
+
+    // When the user clicks on YES
+    yes.onclick = function() {
+        m.style.display = "none";
+        pushNotif("Fast cash processing");
+        setTimeout(function(){
+        window.location.href = 'receipt.html';
+        }, 2000);
     }
 }
 
