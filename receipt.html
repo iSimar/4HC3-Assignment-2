@@ -24,6 +24,10 @@
                     <center>
                     <table class="balance-table" style="margin-bottom: 30px;">
                         <tr>
+                            <td><h2>Transaction Type: </h2></td>
+                            <td style="padding-left: 180px;"><h2><span class="type-here"></span></h2></td>
+                        </tr>
+                        <tr>
                             <td><h2>Date: </h2></td>
                             <td style="padding-left: 180px; color: gray;"><h2><span class="date-here"></span></h2></td>
                         </tr>
@@ -32,23 +36,19 @@
                             <td style="padding-left: 180px; color: green;"><h2>$<span class="withdraw-amount"></span></h2></td>
                         </tr>
                         <tr>
-                            <td><h2>New Balance (Chequing): </h2></td>
+                            <td><h2>New Balance (<span class="account-here"></span>): </h2></td>
                             <td style="padding-left: 180px; color: green;"><h2>$<span class="new-balance"></span></h2></td>
                         </tr>
                         <tr>
                             <td><h2>Print Receipt</h2></td>
                             <td>
-                                <form action="">
-                                <table>
-                                    <tr>
-                                        <td><input type="radio" id="yes" name="yes" value="yes"><label for="yes">Yes</label></td>
-                                        <td style="padding-left: 20px;"><input type="radio" id="no" name="no" value="no"><label for="no">No</label></td>
-                                    </tr>
-                                </table>
-                                </form>
+                                <input type="radio" name="rad" id="Radio0" checked="checked" data-waschecked="true" /><span style="font-size: 18px;padding-left: 5px;">Yes</span>
+                                <input type="radio" name="rad" id="Radio1" /><span style="font-size: 18px; padding-left: 5px;">No</span>
                             </td>
                         </tr>
                     </table>
+                    <input class="gray-button" type="button" value="Back" onclick="onBackFromOther()"/>
+                    <input class="green-button" type="button" value="Continue" onclick="onSelectAmountButton(parseInt(otherAmount))"/>
                     </center>
 
                     
@@ -70,6 +70,8 @@
                 }, 2000);
             }
             else{
+                $( ".type-here" ).html(findGetParameter('type'));
+                $( ".account-here" ).html(findGetParameter('account'));
                 $( ".date-here" ).html(findGetParameter('date'));
                 $( ".withdraw-amount" ).html(numberWithCommas(parseInt(findGetParameter('withdraw'))));
                 $( ".new-balance" ).html(numberWithCommas(parseInt(findGetParameter('balance'))));

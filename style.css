@@ -671,9 +671,9 @@ input[type="submit"][disabled]:hover
     text-align: center;
 }
 
-label {
-    font-size: 24px;
-}
+/*label {
+    font-size: 12px;
+}*/
 
 /*input[type="radio"] + label span {
     display:inline-block;
