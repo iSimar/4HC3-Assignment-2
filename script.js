@@ -388,7 +388,6 @@ function navButtons() {
     var x = document.getElementById("nav-buttons-deposit");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
                   "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
                   "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
                   "</form>";
@@ -397,7 +396,6 @@ function navButtons() {
     x = document.getElementById("nav-buttons-index");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
                   "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
                   "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
                   "</form>";
@@ -406,7 +404,6 @@ function navButtons() {
     x = document.getElementById("nav-buttons-balance");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
                   "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
                   "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
                   "</form>";
@@ -415,7 +412,6 @@ function navButtons() {
     x = document.getElementById("nav-buttons-transfer");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
                   "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
                   "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
                   "</form>";
@@ -424,7 +420,6 @@ function navButtons() {
     x = document.getElementById("nav-buttons-withdraw");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
                   "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
                   "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
                   "</form>";
@@ -433,7 +428,6 @@ function navButtons() {
     x = document.getElementById("nav-buttons-receipt");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
-                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
                   "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
                   "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
                   "</form>";

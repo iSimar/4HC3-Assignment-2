@@ -20,48 +20,28 @@
                 <div id="title">
                     <h1>Deposit</h1>
                 </div>
-                <h3 class="sessiontotal">Total to be deposited: $200.00</h3>
                 <form data-name="deposit-form" data-redirect="#" redirect="#">
                     <select class="select-account-dropdown" data-name="select-account" name="select-account" onchange="unhideContinue();">
                         <option value="">Select account...</option>
                         <option value="chequing">Chequing</option>
                         <option value="savings">Savings</option>
-                    </select>
+                    </select><br><br><br><br><br>
                     <input class="cash-button" type="button" value="Deposit cash" data-name="cash-amount" onclick="depositCash()">
-                    <input class="cheque-button" type="button" value="Deposit cheque" onclick="depositCheque()">
+                    <input class="cheque-button" type="button" value="Deposit cheque" onclick="depositCheque()"><br><br><br><br><br><br><br><br>
+                    <h3 class="sessiontotal">Total to be deposited: $0.00</h3><br><br>
                 </form>
                 </center>
+                <div class="nav-buttons" id="nav-buttons-withdraw"></div>
             </div>
             <div class="content-right-box">
             </div>
         </div>
-        <!--<div class="nav-buttons" id="nav-buttons-withdraw"></div>-->
+
         <div id="myModal" class="modal"></div>
-
-        <!--<div class="top-banner">
-            <h1 class="error-text"></h1>
-        </div>
-
-
-        <div class="page-content">
-            <nav id="sidebar"></nav>
-
-            <div class="content-container">
-
-                <div id="title">
-                    <h1>Deposit</h1>
-                </div>
-
-                
-            </div>
-
-            <div class="nav-buttons" id="nav-buttons-deposit"></div>
-
-            <div id="myModal" class="modal"></div>
-
-        </div>-->
     </body>
     <script>
+        var totalAmount  = '';
+
         $( document ).ready(function() {
             if(!session){
                 pushErrorNotif('You\'re not logged in. Redirecting to login page...');
@@ -72,8 +52,10 @@
             else{
                 sidebar();
                 navButtons();
-                hideContinue();
+                //hideContinue();
             }
         });
+
+        //"Total to be deposited: $200.00"
     </script>
 </html>
