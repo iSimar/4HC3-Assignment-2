@@ -239,8 +239,6 @@ function modal(question) {
                 "<span class=\"yes\">YES</span>" +
                 "<div id=\"qc\"><p id=\"question\">" + question + "</p></div>" +
                 "</div>";
-
-
 }
 
 // FASTCASH
@@ -270,8 +268,11 @@ function fastcash() {
         m.style.display = "none";
         pushNotif("Fast cash processing");
         setTimeout(function(){
-        window.location.href = 'receipt.html';
+        pushSuccessNotif("Fast cash transaction accepted");
         }, 2000);
+        setTimeout(function(){
+        window.location.href = 'receipt.html';
+        }, 5000);
     }
 }
 
@@ -288,12 +289,54 @@ function sidebar() {
 
 // NAV-BUTTONS
 function navButtons() {
-    var x = document.getElementById("nav-buttons");
-    x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+    var x = document.getElementById("nav-buttons-deposit");
+    if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
                   "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
                   "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
                   "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
                   "</form>";
+        x = document.getElementById("nav-buttons-index");
+    }
+    else if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+    x = document.getElementById("nav-buttons-balance");
+    }
+    else if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+    x = document.getElementById("nav-buttons-transfer");
+    }
+    else if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+    x = document.getElementById("nav-buttons-withdraw");
+    }
+    else if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+    x = document.getElementById("nav-buttons-receipt");
+    }
+    else if(typeof(x) != 'undefined' && x != null) {
+        x.innerHTML = "<form data-name=\"nav-form\" data-redirect=\"#\" redirect=\"#\">" +
+                  "<input class=\"logout-button\" type=\"button\" value=\"Logout\" onclick=\"logout()\">" +
+                  "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
+                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">" +
+                  "</form>";
+    }
 }
 
 $( document ).ready(function() {

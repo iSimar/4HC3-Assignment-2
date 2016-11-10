@@ -36,9 +36,16 @@
                     </tr>
                 </table>
                 </center>
+
+                <form action="">
+                    <input type="radio" id="yes" name="yes" value="print">
+                    <label for="yes">Print Receipt</label><br>
+                    <input type="radio" id="no" name="no" value="no"><label for="no">No Receipt</label>
+                </form>
+
             </div>
 
-            <div id="nav-buttons"></div>
+            <div class="nav-buttons" id="nav-buttons-receipt"></div>
 
             <div id="myModal" class="modal"></div>
 
@@ -57,6 +64,10 @@
                 $( ".withdraw-amount" ).html(numberWithCommas(parseInt(findGetParameter('withdraw'))));
                 $( ".new-balance" ).html(numberWithCommas(parseInt(findGetParameter('balance'))));
             }
+            pushNotif("Select receipt printing mode to finish transaction");
+            setTimeout(function(){
+                clearNotif();
+            }, 3000);
             sidebar();
             navButtons();
         });

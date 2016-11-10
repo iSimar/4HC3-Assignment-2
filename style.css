@@ -64,7 +64,7 @@
   margin: auto;
 }
 
-#nav-buttons {
+.nav-buttons {
   position: absolute;
   bottom: 5%;
   width: 100%;
@@ -595,4 +595,26 @@
     top: 40%;
     text-align: center;
     margin: auto;
+}
+
+label {
+    font-size: 24px;
+}
+
+input[type="radio"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+}
+input[type="radio"]:checked + label span {
+}
+
+#status-message {
+    position: relative;
+    margin: auto;
+    font-size: 32px;
+    text-align: center;
 }
