@@ -403,13 +403,13 @@ function navButtons() {
     var x = document.getElementById("nav-buttons-deposit");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">";
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"depositTotal()\">";
         return;
     }
     x = document.getElementById("nav-buttons-index");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">";
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"depositTotal()\">";
         return;
     }
     x = document.getElementById("nav-buttons-balance");
@@ -420,19 +420,19 @@ function navButtons() {
     x = document.getElementById("nav-buttons-transfer");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">";
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"depositTotal()\">";
         return;
     }
     x = document.getElementById("nav-buttons-withdraw");
     if(typeof(x) != 'undefined' && x != null) {
         x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"onBackFromOther()\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"onSelectAmountButton(parseInt(otherAmount))\">";
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"onSelectAmountButton(parseInt(otherAmount))\">";
                 return;
     }
     x = document.getElementById("nav-buttons-receipt");
     if(typeof(x) != 'undefined' && x != null) {
-        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"window.location=\'index.html\';\">" +
-                  "<input class=\"continue-button\" type=\"submit\" value=\"Continue\" onclick=\"depositTotal()\">";
+        x.innerHTML = "<input class=\"cancel-button\" type=\"button\" value=\"Cancel\" onclick=\"onCancel()\">" +
+                  "<input class=\"continue-button\" type=\"button\" value=\"Continue\" onclick=\"onSelectAmountButton(parseInt(otherAmount))\">";
         return;
     }
 }
