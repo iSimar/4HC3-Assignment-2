@@ -215,10 +215,68 @@ function findGetParameter(parameterName) {
     }
     return result;
 }
+
+// MODAL
+function modal(question,y,n) {
+    var x = document.getElementById("myModal");
+    
+    if(!y == 1) ystr = "";
+    else ystr = "<span class=\"yes\">YES</span>";
+    
+    if(!n == 1) nstr = "";
+    else nstr = "<span class=\"no\">NO</span>" ;
+    
+    x.innerHTML = "<div class=\"modal-content\">" +
+                nstr +
+                ystr +
+                "<div id=\"qc\"><p id=\"question\">" + question + "</p></div>" +
+                "</div>";
+}
+
 // TODO: DEPOSIT PAGE FUNCTIONS
 function depositCash(){
     // count (simulated) cash and open a pop-up that lets user confirm whether value is correct
     // update session total deposit amount
+
+    // Get the modal
+    modal("Insert cash into cash slot. Press YES when finished.",1,0);
+
+    var m = document.getElementById('myModal');
+
+    m.style.display = "block";
+
+    var yes = document.getElementsByClassName("yes")[0];
+
+    yes.onclick = function() {
+            modal("Counting cash...",0,0);
+        setTimeout(function(){
+            modal("Is the deposit amount correct?",1,1);
+        }, 2000);
+    }
+
+    var no = document.getElementsByClassName("no")[0];
+
+    // When the user clicks on NO, disregard fastcash
+    no.onclick = function() {
+        modal("Amount not correct. Please take your cash back from the dispenser.",0,0);
+        setTimeout(function(){
+            clearNotif();
+        }, 6000);
+        m.style.display = "none";
+    }
+
+    // When the user clicks on YES
+    yes.onclick = function() {
+        setTimeout(function(){
+            modal("Deposit request accepted. Processing...",0,0);
+        }, 1000);
+        setTimeout(function(){
+            modal("Deposit successful",0,0);
+        }, 3000);
+        setTimeout(function(){
+        window.location.href = 'receipt.html';
+        }, 5000);
+    }
 }
 
 function depositCheque(){
@@ -231,24 +289,9 @@ function depositTotal(){
     // if chequing is chosen, update data "balance" value with total deposit amount
 }
 
-// MODAL
-function modal(question,y,n) {
-    var x = document.getElementById("myModal");
-    if(!y == 1) ystr = "";
-    else ystr = "<span class=\"yes\">YES</span>";
-    if(!n == 1) nstr = "";
-    else nstr = "<span class=\"no\">NO</span>" ;
-    x.innerHTML = "<div class=\"modal-content\">" +
-                nstr +
-                ystr +
-                "<div id=\"qc\"><p id=\"question\">" + question + "</p></div>" +
-                "</div>";
-}
-
 // FASTCASH
 function fastcash() {
     // Get the modal
-
     modal("Withdraw $100 from Chequing account?",1,1);
 
     var m = document.getElementById('myModal');
@@ -334,7 +377,8 @@ function sidebar() {
                 "<a class=\"withdraw-button w-button w-button\" href=\"withdraw.html\" onclick=\"confirmNavigate(\"withdraw.html\")\">Withdraw</a>" +
                 "<a class=\"deposit-button w-button\" href=\"deposit.html\" onclick=\"confirmNavigate(\"deposit.html\")\">Deposit</a>" +
                 "<a class=\"transfer-button w-button w-button\" href=\"transfer.html\" onclick=\"confirmNavigate(\"transfer.html\")\">Transfer</a>" +
-                "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>";
+                "<a class=\"fastcash-button w-button\" href=\"#\" onclick=\"fastcash()\">$100 Fast Cash</a>" +
+                "<a class=\"logout-button w-button\" href=\"#\" onclick=\"logout()\">Logout</a>";
 }
 
 // NAV-BUTTONS
