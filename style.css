@@ -73,6 +73,7 @@
   right: 5%;
   bottom: 5%;
   background-color: #48a33c;
+  padding-top: 24px;
   height: 70px;
   width: 250px;
   float: none;
@@ -199,7 +200,6 @@
 
 .account-button.success-button {
   background-color: #38cc68;
-  padding-top: 24px;
 }
 
 .key-pad {
