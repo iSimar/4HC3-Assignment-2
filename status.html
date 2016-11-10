@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+        <script src="./script.js"></script>
+         <link rel="stylesheet" type="text/css" href="./webflow.css">
+         <link rel="stylesheet" type="text/css" href="./style.css">
+    </head>
+    <body class="body">
+        <div class="top-banner">
+            <h1 class="error-text"></h1>
+        </div>
+
+        <div class="page-content">
+            <center>
+            <p id="status-message"> Dispensing cash. Please wait...</p>
+            </center>
+        </div>
+    </body>
+    <script>
+        $( document ).ready(function() {
+            if(!session){
+                pushErrorNotif('You\'re not logged in. Redirecting to login page...');
+                setTimeout(function(){
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        });
+    </script>
+</html>
