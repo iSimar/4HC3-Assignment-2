@@ -32,8 +32,8 @@
                             <td style="padding-left: 180px; color: gray;"><h2><span class="date-here"></span></h2></td>
                         </tr>
                         <tr>
-                            <td><h2>Withdraw Amount: </h2></td>
-                            <td style="padding-left: 180px; color: green;"><h2>$<span class="withdraw-amount"></span></h2></td>
+                            <td><h2><span class="type-here"></span> Amount: </h2></td>
+                            <td style="padding-left: 180px; color: green;"><h2>$<span class="amount-here"></span></h2></td>
                         </tr>
                         <tr>
                             <td><h2>New Balance (<span class="account-here"></span>): </h2></td>
@@ -47,7 +47,7 @@
                             </td>
                         </tr>
                     </table>
-                    <input class="gray-button" type="button" value="Back" onclick="onBackFromOther()"/>
+                    <input class="gray-button" type="button" value="Cancel" onclick="onCancel()"/>
                     <input class="green-button" type="button" value="Continue" onclick="onSelectAmountButton(parseInt(otherAmount))"/>
                     </center>
 
@@ -73,7 +73,7 @@
                 $( ".type-here" ).html(findGetParameter('type'));
                 $( ".account-here" ).html(findGetParameter('account'));
                 $( ".date-here" ).html(findGetParameter('date'));
-                $( ".withdraw-amount" ).html(numberWithCommas(parseInt(findGetParameter('withdraw'))));
+                $( ".amount-here" ).html(numberWithCommas(parseInt(findGetParameter('amount'))));
                 $( ".new-balance" ).html(numberWithCommas(parseInt(findGetParameter('balance'))));
             }
             pushNotif("Select receipt printing mode to finish transaction");
@@ -84,5 +84,11 @@
             navButtons();
             hideContinue();
         });
+
+        function onCancel(){
+            if(findGetParameter('type')=='Withdraw'){
+                window.location.href = 'withdraw.html';
+            }
+        }
     </script>
 </html>

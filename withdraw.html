@@ -137,7 +137,8 @@
                 var from = $( ".select-account-dropdown" ).val();
                 if(from == 'chequing' || from == 'savings'){
                     if(accountData[from] >= amount){
-
+                        var d = new Date();
+                        window.location.href = 'receipt.html?type=Withdraw&account='+from+'&amount='+amount+'&balance='+(accountData[from]-amount)+'&date='+d.toLocaleDateString();
                     }
                     else{
                         pushNotif('Insufficient amount in '+from+' account');
